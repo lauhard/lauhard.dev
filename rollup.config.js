@@ -8,15 +8,27 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import { mdsvex } from "mdsvex";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
+const preprocess = [
+	mdsvex({
+		extension: '.md',
+		// layout: {
+		// 	blog: './src/routes/blog/_blog-layout.svelte',
+		// },
+	}),
+    // scss()
+]
+
+const extensions = [".svelte", ".svx", ".md"];
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
-	onwarn(warning);
+    onwarn(warning);
 
 export default {
 	client: {
@@ -30,7 +42,9 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				emitCss: true
+                emitCss: true,
+                extensions,
+                preprocess
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
@@ -79,7 +93,9 @@ export default {
 			svelte({
 				generate: 'ssr',
 				hydratable: true,
-				dev
+                dev,
+                extensions,
+                preprocess
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
