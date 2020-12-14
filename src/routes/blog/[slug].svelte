@@ -15,6 +15,7 @@
 
 <script>
     export let post;
+    console.log("slug svelte");
     console.log(post);
 </script>
 
