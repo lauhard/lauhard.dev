@@ -3,12 +3,17 @@
     import { onMount } from 'svelte';
     const { page, preloading } = stores();
     import Header from '../../components/Header.svelte';
+    import Posts from '../../store/posts';
 
     let path = $page.path;
     export let tags = [];
     export let post = {};
     export let title;
-
+    // $: {
+    //     tags  = tags;
+    //     let posts = $Posts;
+    //     post = posts.find(p => `/blog/${p.slug}`=== path );
+    // }
     onMount (async () => {
         console.log(path);
         // attributes = await fetch(`${path}.json`).then(r => r.json());
@@ -17,8 +22,7 @@
         console.log(post);
     }) 
 
-    $: tags  = tags;
-    $: post  = post;
+  
 </script>
 
 <style>

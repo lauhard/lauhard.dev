@@ -6,7 +6,13 @@
 </script>
 
 <script>
-	export let posts;
+    import Posts from '../../store/posts';
+    export let posts =[];
+    $: posts = posts;
+    
+    $Posts = posts;
+    
+    
 </script>
 
 <style>
