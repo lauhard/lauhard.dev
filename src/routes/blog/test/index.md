@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: blogLayout
 title: 'Test'
 category: 'Programming'
 author: 'Andreas Lauhard'
@@ -9,5 +9,8 @@ tags:
     - Blog
     - Images
 ---
+<script>
+    import Content from './content.md'
+</script>
 
-## Test
+<Content/>
