@@ -5,14 +5,17 @@
     import Header from '../../components/Header.svelte';
 
     let path = $page.path;
-    export let attributes = {};
     export let tags = [];
+    export let posts = [];
+    export let title;
+
     onMount (async () => {
-        attributes = await fetch(`${path}.json`).then(r => r.json());
-        console.log(attributes);
-        tags = attributes.tags;
+        // attributes = await fetch(`${path}.json`).then(r => r.json());
+        posts = await fetch(`blog.json`).then(r => r.json());
+       
+        console.log(posts);
     }) 
-    $: attributes  = attributes;
+
     $: tags  = tags;
 </script>
 
@@ -28,16 +31,18 @@
 </style>
 
 <main>
-    {#await attributes}
-        <!-- attributes is pending -->
+    {title}
+    <!-- {#await attributes}
     {:then attributes}
         {attributes.creationDate}
         <Header {attributes} ></Header>
     {:catch error}
-        <!-- attributes was rejected -->
-    {/await}
+    {/await} -->
     {#each tags as tag}
         {tag}
+    {/each} <br>
+    {#each posts as post}
+        {post.creationDate}
     {/each}
    
     <!-- blogpost layout -->
