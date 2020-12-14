@@ -8,9 +8,16 @@
     <!-- head content -->
 </svelte:head>
 <header>
-    <h1>{attributes.title}</h1>
-    <p>by: {attributes.author}</p>
-    <span>Creation date: {attributes.creationDate} </span>
+    {#await attributes}
+        <!-- attibutes is pending -->
+    {:then attributes}
+        <h1>{attributes.title}</h1>
+        <p>by: {attributes.author}</p>
+        <span>Creation date: {attributes.creationDate} </span>
+    {:catch error}
+        <!-- attibutes was rejected -->
+    {/await}
+    
     
 </header>
 <!-- css -->
