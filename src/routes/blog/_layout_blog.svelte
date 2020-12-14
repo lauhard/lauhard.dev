@@ -27,10 +27,18 @@
 </style>
 
 <main>
+    {#await attributes}
+        <!-- attributes is pending -->
+    {:then attributes}
+        {attributes.creationDate}
+        <Header {attributes} ></Header>
+    {:catch error}
+        <!-- attributes was rejected -->
+    {/await}
     {#each tags as tag}
         {tag}
     {/each}
-    <Header {attributes} ></Header>
+   
     <!-- blogpost layout -->
 	<slot></slot>
 </main>
