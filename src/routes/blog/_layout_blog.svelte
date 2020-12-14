@@ -18,6 +18,7 @@
     }) 
 
     $: tags  = tags;
+    $: post  = post;
 </script>
 
 <style>
@@ -42,8 +43,14 @@
     {#each tags as tag}
         {tag}
     {/each} <br>
-   
+    {#await post}
+        <!-- post is pending -->
+    {:then post}
     {post.creationDate}
+    {:catch error}
+        <!-- post was rejected -->
+    {/await}
+    
    
     <!-- blogpost layout -->
 	<slot></slot>
