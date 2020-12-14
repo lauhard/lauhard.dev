@@ -1,8 +1,7 @@
 <script context="module">
 	export async function preload() {
-		return await this.fetch(`blog.json`).then(r => r.json()).then(posts => {
-			return { posts };
-		});
+        let posts = await this.fetch(`blog.json`).then(r => r.json());
+        return { posts };
 	}
 </script>
 

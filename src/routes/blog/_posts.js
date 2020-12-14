@@ -69,7 +69,6 @@ let posts = pathInfoObjs.map(pathInfo => {
         let filePath = path.resolve(pathInfo.path, fileName);
         let fileContent = utils.readFileContent(filePath, {encoding:'utf8'})
         contentFrontMatter = frontMatter(fileContent);
-        console.log(contentFrontMatter);
         //NOTE no content file was found... 
         if (matchContentFile.length === 0) {
             fileContent = utils.removeHTML(fileContent);

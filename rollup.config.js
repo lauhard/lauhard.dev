@@ -17,9 +17,9 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 const preprocess = [
 	mdsvex({
 		extension: '.md',
-		// layout: {
-		// 	blog: './src/routes/blog/_blog-layout.svelte',
-		// },
+		layout: {
+			blog: '/src/routes/blog/_layout_blog.svelte',
+		},
 	}),
     // scss()
 ]

@@ -1,4 +1,5 @@
 ---
+layout: blog
 title: 'Test'
 category: 'Programming'
 author: 'Andreas Lauhard'
