@@ -1,25 +1,23 @@
-
 <script>
-    import { onMount } from 'svelte';
     import { stores } from '@sapper/app';
-    import Header from '../../components/Header.svelte';
+    import { onMount } from 'svelte';
     const { page, preloading } = stores();
+    import Header from '../../components/Header.svelte';
 
     let path = $page.path;
     export let tags = [];
     export let post = {};
-    export let attributes = {};
     export let title;
-   
+
     onMount (async () => {
-       
-        attributes = await fetch(`${path}.json`).then(r => r.json());
+        console.log(path);
+        // attributes = await fetch(`${path}.json`).then(r => r.json());
         let posts = await fetch(`blog.json`).then(r => r.json());
         post = posts.find(p => `/blog/${p.slug}`=== path )
         console.log(post);
-        console.log(attributes);
     }) 
 
+    $: tags  = tags;
 </script>
 
 <style>
@@ -46,7 +44,6 @@
     {/each} <br>
    
     {post.creationDate}
-    {attributes.creationDate}
    
     <!-- blogpost layout -->
 	<slot></slot>
