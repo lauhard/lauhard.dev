@@ -1,4 +1,4 @@
-<!-- <script context="module">
+<script context="module">
 	export async function preload({ params }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
@@ -62,4 +62,4 @@
 
 <div class="content">
 	{@html post.html}
-</div> -->
+</div>
