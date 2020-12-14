@@ -6,14 +6,15 @@
 
     let path = $page.path;
     export let tags = [];
-    export let posts = [];
+    export let post = {};
     export let title;
 
     onMount (async () => {
+        console.log(path);
         // attributes = await fetch(`${path}.json`).then(r => r.json());
-        posts = await fetch(`blog.json`).then(r => r.json());
-       
-        console.log(posts);
+        let posts = await fetch(`blog.json`).then(r => r.json());
+        post = posts.find(p => `/blog/${p.slug}`=== path )
+        console.log(post);
     }) 
 
     $: tags  = tags;
@@ -41,9 +42,8 @@
     {#each tags as tag}
         {tag}
     {/each} <br>
-    {#each posts as post}
-        {post.creationDate}
-    {/each}
+   
+    {post.creationDate}
    
     <!-- blogpost layout -->
 	<slot></slot>
