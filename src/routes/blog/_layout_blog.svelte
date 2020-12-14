@@ -9,6 +9,7 @@
     export let tags = [];
     onMount (async () => {
         attributes = await fetch(`${path}.json`).then(r => r.json());
+        console.log(attributes);
         tags = attributes.tags;
     }) 
     $: attributes  = attributes;

@@ -1,10 +1,10 @@
-<script context="module">
+<!-- <script context="module">
 	export async function preload({ params }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
 		const res = await this.fetch(`blog/${params.slug}.json`);
 		const data = await res.json();
-
+        console.log(data);
 		if (res.status === 200) {
 			return { post: data };
 		} else {
@@ -14,7 +14,8 @@
 </script>
 
 <script>
-	export let post;
+    export let post;
+    console.log(post);
 </script>
 
 <style>
@@ -61,4 +62,4 @@
 
 <div class="content">
 	{@html post.html}
-</div>
+</div> -->
