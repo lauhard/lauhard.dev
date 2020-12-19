@@ -12,7 +12,14 @@ import posts from './_posts.js';
 
 export function get(req, res) {
 	console.log(req.path)
-	const contents = JSON.stringify(posts.map(post => {
+	let slug = req.path.replace(".json","").replace("/","");
+	console.log(slug)
+
+	let filteredPosts = posts.filter(p => p.slug == slug);
+	if (filteredPosts.length == 0)
+		filteredPosts = posts;
+	console.log(filteredPosts);
+	const contents = JSON.stringify(filteredPosts.map(post => {
 		return {
 			title: post.title,
 			slug: post.slug,

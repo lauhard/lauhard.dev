@@ -18,7 +18,7 @@
                 fixedPath = fixedPath.slice(0, -1);
             }
             console.log("try fetch attributes...") 
-            // attributes = await fetch(`/blog/test.json`).then(r => r.json());
+            attributes = await fetch(`/blog/test.json`).then(r => r.json());
             console.log("attributes", attributes);
             if ($Posts.length == 0) {
                 console.log("try fetch posts again...") 
@@ -30,7 +30,6 @@
                 
                 post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
                 console.log("current post", post);
-                console.log(post);
             }
         }) 
 
