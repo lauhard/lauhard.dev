@@ -10,14 +10,15 @@ export function get(req, res, next) {
 	// this file is called [slug].json.js
 	const { slug } = req.params;
     console.log("slug json");
-        
-        console.log(slug);
-	if (lookup.has(slug)) {
+		
+	let slug1 = "test";
+        console.log(slug1);
+	if (lookup.has(slug1)) {
 		res.writeHead(200, {
 			'Content-Type': 'application/json'
 		});
 
-		res.end(lookup.get(slug));
+		res.end(lookup.get(slug1));
 	} else {
 		res.writeHead(404, {
 			'Content-Type': 'application/json'
