@@ -17,16 +17,19 @@
     if ($Posts.length == 0) {
         console.log("try fetch posts again")
         onMount (async () => {
-            console.log(path);
+            let fixedPath = path.slice(0, -1);
+            console.log(fixedPath);
             // attributes = await fetch(`${path}.json`).then(r => r.json());
             let posts = await fetch(`blog.json`).then(r => r.json());
-            post = posts.find(p => `/blog/${p.slug}`=== '/blog/test/' )
+            post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
             console.log(post);
         }) 
 
     } else {
+        let fixedPath = path.slice(0, -1);
+        console.log(fixedPath);
         console.log("get posts from the store...")
-        post = $Posts.find(p => `/blog/${p.slug}`=== '/blog/test/' )
+        post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
         console.log(post);
     }
     
