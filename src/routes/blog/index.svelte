@@ -9,12 +9,7 @@
     import Posts from '../../store/posts';
     export let posts =[];
     $: posts = posts;
-    
 	$Posts = posts;
-	console.log("store posts...")
-	console.log($Posts);
-    
-    
 </script>
 
 <style>

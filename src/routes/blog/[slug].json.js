@@ -1,32 +1,26 @@
 import posts from './_posts.js';
 
-const lookup = new Map();
-posts.forEach(post => {
-	lookup.set(post.slug, JSON.stringify(post));
-});
 
-export function get(req, res, next) {
+
+export function get(req, res) {
 	// the `slug` parameter is available because
 	// this file is called [slug].json.js
 	// const { slug } = req.params;
-    // console.log("slug json");
-		
-	let slug1 = "test";
-        console.log(slug1);
-	if (lookup.has(slug1)) {
-		res.writeHead(200, {
-			'Content-Type': 'application/json',
-			'Accept': 'application/json'
-		});
+	let filteredPosts = posts.find(p => p.slug == "test");
+	console.log(filteredPosts);
+	const contents = JSON.stringify(posts.map(post => {
+		return {
+			title: post.title,
+			slug: post.slug,
+			creationDate: post.creationDate,
+			tags: post.tags,
+			author: post.author
+		};
+	}));
+	res.writeHead(200, {
+		'Content-Type': 'application/json'
+	});
 
-		res.end(lookup.get(slug1));
-	} else {
-		res.writeHead(404, {
-			'Content-Type': 'application/json'
-		});
+	res.end(contents);
 
-		res.end(JSON.stringify({
-			message: `Not found`
-		}));
-	}
 }
