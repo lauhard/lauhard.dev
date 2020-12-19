@@ -5,7 +5,7 @@
     import Header from '../../components/Header.svelte';
     import Posts from '../../store/posts';
 
-    let path = $page.path;
+
     export let tags = [];
     export let post = {};
     export let title;
@@ -17,8 +17,11 @@
     if ($Posts.length == 0) {
         console.log("try fetch posts again")
         onMount (async () => {
-            let fixedPath = path.slice(0, -1);
+            let fixedPath = $page.path
             console.log(fixedPath);
+            if (fixedPath.charAt(fixedPath.length -1) === '/') {
+                fixedPath = path.slice(0, -1);
+            }
             // attributes = await fetch(`${path}.json`).then(r => r.json());
             let posts = await fetch(`blog.json`).then(r => r.json());
             post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
@@ -26,8 +29,11 @@
         }) 
 
     } else {
-        let fixedPath = path.slice(0, -1);
+        let fixedPath = $page.path
         console.log(fixedPath);
+        if (fixedPath.charAt(fixedPath.length -1) === '/') {
+            fixedPath = path.slice(0, -1);
+        }
         console.log("get posts from the store...")
         post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
         console.log(post);
