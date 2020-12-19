@@ -20,7 +20,7 @@
             let fixedPath = $page.path
             console.log(fixedPath);
             if (fixedPath.charAt(fixedPath.length -1) === '/') {
-                fixedPath = path.slice(0, -1);
+                fixedPath = fixedPath.slice(0, -1);
             }
             // attributes = await fetch(`${path}.json`).then(r => r.json());
             let posts = await fetch(`blog.json`).then(r => r.json());
@@ -32,7 +32,7 @@
         let fixedPath = $page.path
         console.log(fixedPath);
         if (fixedPath.charAt(fixedPath.length -1) === '/') {
-            fixedPath = path.slice(0, -1);
+            fixedPath = fixedPath.slice(0, -1);
         }
         console.log("get posts from the store...")
         post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
