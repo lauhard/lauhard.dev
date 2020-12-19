@@ -8,14 +8,15 @@ posts.forEach(post => {
 export function get(req, res, next) {
 	// the `slug` parameter is available because
 	// this file is called [slug].json.js
-	const { slug } = req.params;
-    console.log("slug json");
+	// const { slug } = req.params;
+    // console.log("slug json");
 		
 	let slug1 = "test";
         console.log(slug1);
 	if (lookup.has(slug1)) {
 		res.writeHead(200, {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'Accept': 'application/json'
 		});
 
 		res.end(lookup.get(slug1));
