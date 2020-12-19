@@ -20,13 +20,13 @@
             console.log(path);
             // attributes = await fetch(`${path}.json`).then(r => r.json());
             let posts = await fetch(`blog.json`).then(r => r.json());
-            post = posts.find(p => `/blog/${p.slug}`=== '/blog/test' )
+            post = posts.find(p => `/blog/${p.slug}`=== '/blog/test/' )
             console.log(post);
         }) 
 
     } else {
         console.log("get posts from the store...")
-        post = $Posts.find(p => `/blog/${p.slug}`=== '/blog/test' )
+        post = $Posts.find(p => `/blog/${p.slug}`=== '/blog/test/' )
         console.log(post);
     }
     
