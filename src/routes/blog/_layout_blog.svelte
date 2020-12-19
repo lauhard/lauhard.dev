@@ -7,7 +7,7 @@
 
     export let tags = [];
     export let post = {};
-    export let attributes = {};
+    // export let attributes = {};
     export let title;
 
     
@@ -18,11 +18,11 @@
                 fixedPath = fixedPath.slice(0, -1);
             }
             console.log("try fetch attributes...") 
-            attributes = await fetch(`/blog/test.json`).then(r => r.json());
+            let attributes = await fetch(`/blog/test.json`).then(r => r.json());
             console.log("attributes", attributes);
             if ($Posts.length == 0) {
                 console.log("try fetch posts again...") 
-                let posts = await fetch(`blog.json`).then(r => r.json());
+                let posts = await fetch(`/blog.json`).then(r => r.json());
                 post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
                 console.log("current post", post);
             } else {
