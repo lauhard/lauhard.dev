@@ -14,13 +14,21 @@
     //     let posts = $Posts;
     //     post = posts.find(p => `/blog/${p.slug}`=== path );
     // }
-    onMount (async () => {
-        console.log(path);
-        // attributes = await fetch(`${path}.json`).then(r => r.json());
-        let posts = await fetch(`blog.json`).then(r => r.json());
-        post = posts.find(p => `/blog/${p.slug}`=== path )
-        console.log(post);
-    }) 
+    if ($Posts.length == 0) {
+        console.log("try fetch posts again")
+        onMount (async () => {
+            console.log(path);
+            // attributes = await fetch(`${path}.json`).then(r => r.json());
+            let posts = await fetch(`blog.json`).then(r => r.json());
+            post = posts.find(p => `/blog/${p.slug}`=== 'test' )
+            console.log(post);
+        }) 
+
+    } else {
+        console.log("get posts from the store...")
+        post = $Posts.find(p => `/blog/${p.slug}`=== 'test' )
+    }
+    
 
   
 </script>

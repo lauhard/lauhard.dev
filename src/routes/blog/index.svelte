@@ -10,7 +10,9 @@
     export let posts =[];
     $: posts = posts;
     
-    $Posts = posts;
+	$Posts = posts;
+	console.log("store posts...")
+	console.log($Posts);
     
     
 </script>
