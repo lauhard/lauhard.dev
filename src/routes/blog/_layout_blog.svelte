@@ -5,39 +5,36 @@
     import Header from '../../components/Header.svelte';
     import Posts from '../../store/posts';
 
-
     export let tags = [];
     export let post = {};
+    export let attributes = {};
     export let title;
-    // $: {
-    //     tags  = tags;
-    //     let posts = $Posts;
-    //     post = posts.find(p => `/blog/${p.slug}`=== path );
-    // }
-    if ($Posts.length == 0) {
-        console.log("try fetch posts again")
+
+    
         onMount (async () => {
             let fixedPath = $page.path
             console.log(fixedPath);
             if (fixedPath.charAt(fixedPath.length -1) === '/') {
                 fixedPath = fixedPath.slice(0, -1);
             }
-            // attributes = await fetch(`${path}.json`).then(r => r.json());
-            let posts = await fetch(`blog.json`).then(r => r.json());
-            post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
-            console.log(post);
+            console.log("try fetch attributes...") 
+            attributes = await fetch(`blog/test.json`).then(r => r.json());
+            console.log("attributes", attributes);
+            if ($Posts.length == 0) {
+                console.log("try fetch posts again...") 
+                let posts = await fetch(`blog.json`).then(r => r.json());
+                post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
+                console.log("current post", post);
+            } else {
+                console.log("get posts from the store...")
+                
+                post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
+                console.log("current post", post);
+                console.log(post);
+            }
         }) 
 
-    } else {
-        let fixedPath = $page.path
-        console.log(fixedPath);
-        if (fixedPath.charAt(fixedPath.length -1) === '/') {
-            fixedPath = fixedPath.slice(0, -1);
-        }
-        console.log("get posts from the store...")
-        post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
-        console.log(post);
-    }
+    
     
 
   
@@ -58,20 +55,15 @@
     {title}
     <!-- {#await attributes}
     {:then attributes}
-        {attributes.creationDate}
         <Header {attributes} ></Header>
     {:catch error}
     {/await} -->
     {#each tags as tag}
         {tag}
     {/each} <br>
-    {#await post}
-        post is pending
-    {:then post}
-        {post.creationDate}
-    {:catch error}
-        post was rejected
-    {/await}
+    
+    {post.creationDate}
+  
     
    
     <!-- blogpost layout -->
