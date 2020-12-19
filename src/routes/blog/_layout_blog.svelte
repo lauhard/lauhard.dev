@@ -65,13 +65,13 @@
     {#each tags as tag}
         {tag}
     {/each} <br>
-    {#await post}
+    <!-- {#await post} -->
         <!-- post is pending -->
-    {:then post}
+    <!-- {:then post} -->
     {post.creationDate}
-    {:catch error}
+    <!-- {:catch error} -->
         <!-- post was rejected -->
-    {/await}
+    <!-- {/await} -->
     
    
     <!-- blogpost layout -->
