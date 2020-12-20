@@ -87,7 +87,6 @@ let posts = pathInfoObjs.map(pathInfo => {
         // modificationDate: (fileInfoContent == null) ? FileInfoIndex.mdate : fileInfoContent.mdate,
         // modificationTime: (fileInfoContent == null) ? FileInfoIndex.mtime : fileInfoContent.mtime,
         readingTime: readingTime,
-        // html: (marked(contentFrontMatter.body, { renderer })),
     }
 });
 console.log(posts);
