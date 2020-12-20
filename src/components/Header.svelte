@@ -16,8 +16,12 @@
         <!-- attibutes is pending -->
     <!-- {:then post} -->
     <h1>{post.title}</h1>
-    <p>by: {post.author}</p>
-    <span>Creation date: {post.creationDate} </span>
+    <p>by <strong>{post.author}</strong></p><br>
+    <p>📅 {post.creationDate}</p>
+    {#if typeof(post.modificationDate) != 'undefined' && post.modificationDate != ''}
+        <p>✏️ {post.modificationDate}</p>
+    {/if}
+    <p>🕝 ~ {post.readingTime} min. </p>
     <!-- {:catch error} -->
         <!-- attibutes was rejected -->
     <!-- {/await} -->
@@ -34,7 +38,7 @@
         background-color: blueviolet;
         padding: 1em;
     }
-    p {
+    p, h1 {
         margin: 0;
         padding: 0;
     }

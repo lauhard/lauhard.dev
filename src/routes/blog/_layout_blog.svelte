@@ -9,7 +9,6 @@
 
     export let tags = [];
     export let post = {};
-    export let title;
     let posts = [];
     $: posts = posts;
 
@@ -49,20 +48,9 @@
 </style>
 
 <main>
-    {title}
-    <!-- {#await attributes}
-    {:then attributes}
-        <Header {attributes} ></Header>
-    {:catch error}
-    {/await} -->
-    {#each tags as tag}
-        {tag}
-    {/each} <br>
-
+   
     <Header {post} {tags} on:tag={getTag} />
 
-  
-    
    
     <!-- blogpost layout -->
 	<slot></slot>
