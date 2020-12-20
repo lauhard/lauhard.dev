@@ -8,9 +8,11 @@
 	export async function preload(page) {
 		let data = {};
 		let host = page.host;
+		console.log(host)
         let isLocal = host.split(':')[0].toString() === 'localhost';
         let posts = await this.fetch(`blog.json`).then(r => r.json());
 		data.isLocal = isLocal;
+		data.host = host;
         data.posts = posts;
         return { data };
 	}
@@ -18,11 +20,14 @@
 
 <script>
 	export let data;
-	export let isLocal = false;
+	export let isLocal;
+	export let host;
 	export let posts =[];
 
-	// $: isLocal = data.isLocal; 
 	isLocal = data.isLocal; 
+	host = data.host; 
+	console.log(isLocal)
+	console.log(host)
 	posts = data.posts;
 	isLocal = data.isLocal;
 	$Posts = posts;
