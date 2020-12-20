@@ -17,9 +17,6 @@
             if (fixedPath.charAt(fixedPath.length -1) === '/') {
                 fixedPath = fixedPath.slice(0, -1);
             }
-            console.log("try fetch attributes...") 
-            let attributes = await fetch(`/blog/test.json`).then(r => r.json());
-            console.log("attributes", attributes);
             if ($Posts.length == 0) {
                 console.log("try fetch posts again...") 
                 let posts = await fetch(`/blog.json`).then(r => r.json());
@@ -27,7 +24,6 @@
                 console.log("current post", post);
             } else {
                 console.log("get posts from the store...")
-                
                 post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
                 console.log("current post", post);
             }
