@@ -75,12 +75,16 @@
       href="https://tutsplus.github.io/syntax-highlighter-demos/highlighters/Prism/prism_okaidia.css" />
   </svelte:head>
   <div class="w3-container">
-    <h2>{header}</h2>
+    <p><strong>{header}</strong></p>
     <pre><code class="language-{language}" style="backgroud-color:red !important">{code}</code></pre>
   </div>
   <style>
        code[class*="language-"]{
           background-color:transparent !important;
+      }
+      p{
+        margin: 0;
+        padding: 0;
       }
   </style>
   
