@@ -7,9 +7,14 @@
 
 <script>
     import Posts from '../../store/posts';
-    export let posts =[];
-    $: posts = posts;
+    import FilteredPosts from '../../store/filteredPosts';
+	export let posts =[];
 	$Posts = posts;
+	if ($FilteredPosts.length > 0) {
+		posts = $FilteredPosts
+	}
+    
+	
 </script>
 
 <style>

@@ -70,13 +70,12 @@ const utils = {
             let tags = e.tags;
             let valid = tags.filter(tag => tag === event)
             if(valid.length === 1) {
-                // console.log(e);
                 return e
             }
             else
                 return false
         }).filter(p => p != false);
-        // console.log(filteredPosts);
+        console.log(filteredPosts);
         return filteredPosts;
     }
  }
