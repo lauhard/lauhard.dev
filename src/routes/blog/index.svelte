@@ -1,45 +1,38 @@
 <script context="module">
 	import { flip } from 'svelte/animate';
 	import { quintIn, quintOut, quintInOut } from 'svelte/easing';
-
 	import Posts from '../../store/posts';
 	import FilteredPosts from '../../store/filteredPosts';
-	
+	import FilterButton from "../../components/filterButton.svelte";
+    import utils from '../../helper/utils';
+
 	export async function preload(page) {
-		let data = {};
-		let host = page.host;
-		console.log(host)
-        let isLocal = host.split(':')[0].toString() === 'localhost';
         let posts = await this.fetch(`blog.json`).then(r => r.json());
-		data.isLocal = isLocal;
-		data.host = host;
-		data.page = page;
-        data.posts = posts;
-        return { data };
+        return { posts };
 	}
 </script>
 
 <script>
-	export let data;
-	export let isLocal;
-	export let host;
-	export let page;
-	export let posts =[];
-
-	isLocal = data.isLocal; 
-	host = data.host; 
-	page = data.page; 
-	console.log(isLocal)
-	console.log(host)
-	console.log(page)
-	posts = data.posts;
-	isLocal = data.isLocal;
+	export let posts = [];
+	export let tags = [];
+	export let filterInfo = " ";
 	$Posts = posts;
+
+	function getTag(event) {
+        let filteredPosts= utils.filterPostsByTag($Posts, event.detail.text);
+        filteredPosts.filter = event.detail.text;
+        filteredPosts.by = "tag";
+		$FilteredPosts = filteredPosts;
+		posts = $FilteredPosts
+		filterInfo = `Post filtered by ${posts.by}: "${posts.filter}"`;
+	}
 
 	if ($FilteredPosts.length > 0) {
 		posts = $FilteredPosts
+		filterInfo = `Post filtered by ${posts.by}: "${posts.filter}"`;
 	}
-    
+
+	tags = utils.getTags(posts);
 	
 </script>
 
@@ -47,19 +40,23 @@
 	<title>Blog</title>
 </svelte:head>
 
-<h1>Recent posts</h1>
+<h1>Posts</h1>
+<p>{filterInfo}</p>
+
+{#each tags as tag}
+<FilterButton  tag = "{tag}" on:tag={getTag}>
+   <a class="btn" href="/blog"> {tag} </a> 
+</FilterButton>
+{/each}
 
 <div class="container">
     {#each posts as post (post.slug)}
         <div animate:flip="{{delay: 10, duration: 450, easing: quintInOut}}">
-            {#if isLocal == true && post.draft == true || post.draft == false }
+            {#if post.publish == true }
                 <a rel="prefetch" href='/blog/{post.slug}' class="blogpost-card">
                     <div>{post.title}</div>
                     <div>{post.author}</div>
                     <div>{post.creationDate}</div>
-                    {#if post.draft == true }
-                        <span style="background:tomato"> DRAFT </span>
-                    {/if} 
                 </a>
             {/if}
         </div>

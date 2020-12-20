@@ -5,7 +5,7 @@ category: 'Programming'
 author: 'Andreas Lauhard'
 creationDate: '2020-12-12'
 modificationDate: ''
-draft: false
+publish: true
 tags: 
     - Markdown
     - Swag
