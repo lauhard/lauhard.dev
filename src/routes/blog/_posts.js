@@ -82,8 +82,8 @@ let posts = pathInfoObjs.map(pathInfo => {
     return {
         ...contentFrontMatter.attributes,
         slug: pathInfo.folder,
-        creationDate: FileInfoIndex.cdate,
-        creationTime: FileInfoIndex.ctime,
+        // creationDate: FileInfoIndex.cdate,
+        // creationTime: FileInfoIndex.ctime,
         // modificationDate: (fileInfoContent == null) ? FileInfoIndex.mdate : fileInfoContent.mdate,
         // modificationTime: (fileInfoContent == null) ? FileInfoIndex.mtime : fileInfoContent.mtime,
         readingTime: readingTime,
