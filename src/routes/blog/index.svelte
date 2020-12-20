@@ -32,6 +32,6 @@
 
 <ul>
 	{#each posts as post}
-		<li><a rel="prefetch" href="blog/{post.slug}">{post.title}</a></li>
+		<li><a rel="prefetch" href="blog/{post.slug}">{post.title}{post.creationTime}</a></li>
 	{/each}
 </ul>
