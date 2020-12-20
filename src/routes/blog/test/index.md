@@ -3,6 +3,8 @@ layout: blogLayout
 title: 'Test'
 category: 'Programming'
 author: 'Andreas Lauhard'
+creationDate: '2020-11-12'
+modificationDate: ''
 tags: 
     - Markdown
     - Svelte
