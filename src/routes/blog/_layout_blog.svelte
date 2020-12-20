@@ -7,32 +7,27 @@
 
     export let tags = [];
     export let post = {};
-    // export let attributes = {};
     export let title;
 
     
-        onMount (async () => {
-            let fixedPath = $page.path
-            console.log(fixedPath);
-            if (fixedPath.charAt(fixedPath.length -1) === '/') {
-                fixedPath = fixedPath.slice(0, -1);
-            }
-            if ($Posts.length == 0) {
-                console.log("try fetch posts again...") 
-                let posts = await fetch(`/blog.json`).then(r => r.json());
-                post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
-                console.log("current post", post);
-            } else {
-                console.log("get posts from the store...")
-                post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
-                console.log("current post", post);
-            }
-        }) 
+    onMount (async () => {
+        let fixedPath = $page.path
+        console.log(fixedPath);
+        if (fixedPath.charAt(fixedPath.length -1) === '/') {
+            fixedPath = fixedPath.slice(0, -1);
+        }
+        if ($Posts.length == 0) {
+            console.log("try fetch posts again...") 
+            let posts = await fetch(`/blog.json`).then(r => r.json());
+            post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
+            console.log("current post", post);
+        } else {
+            console.log("get posts from the store...")
+            post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
+            console.log("current post", post);
+        }
+    }) 
 
-    
-    
-
-  
 </script>
 
 <style>
@@ -56,7 +51,9 @@
     {#each tags as tag}
         {tag}
     {/each} <br>
-    
+
+    <Header {post} ></Header>
+
     {post.creationDate}
   
     

@@ -1,19 +1,19 @@
 <!-- script -->
 <script>
-    export let attributes = {};
-    $: attributes = attributes;
+    export let post = {};
+    $: post = post;
 </script>
 <!-- html -->
 <svelte:head>
     <!-- head content -->
 </svelte:head>
 <header>
-    {#await attributes}
+    {#await post}
         <!-- attibutes is pending -->
-    {:then attributes}
-        <h1>{attributes.title}</h1>
-        <p>by: {attributes.author}</p>
-        <span>Creation date: {attributes.creationDate} </span>
+    {:then post}
+        <h1>{post.title}</h1>
+        <p>by: {post.author}</p>
+        <span>Creation date: {post.creationDate} </span>
     {:catch error}
         <!-- attibutes was rejected -->
     {/await}
