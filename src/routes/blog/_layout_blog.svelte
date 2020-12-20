@@ -14,17 +14,13 @@
     $: posts = posts;
 
     function getTag(event) {
-        console.log(event.detail.text);
-        console.log($Posts);
         let filteredPosts = utils.filterPostsByTag($Posts, event.detail.text);
-        console.log(filteredPosts);
         filteredPosts.filter = event.detail.text;
         filteredPosts.by = "tag";
         $FilteredPosts = filteredPosts;
 	}
     onMount (async () => {
         let fixedPath = $page.path
-        // console.log(fixedPath);
         if (fixedPath.charAt(fixedPath.length -1) === '/') {
             fixedPath = fixedPath.slice(0, -1);
         }
@@ -33,11 +29,9 @@
             posts = await fetch(`/blog.json`).then(r => r.json());
             $Posts = posts;
             post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
-            // console.log("current post", post);
         } else {
             console.log("get posts from the store...")
             post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
-            // console.log("current post", post);
         }
     }) 
 
@@ -67,8 +61,6 @@
 
     <Header {post} {tags} on:tag={getTag} />
 
-    {post.creationDate} <br>
-    {post.creationTime}
   
     
    
