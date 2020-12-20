@@ -3,7 +3,7 @@
 	import { quintIn, quintOut, quintInOut } from 'svelte/easing';
 	import Posts from '../../store/posts';
 	import FilteredPosts from '../../store/filteredPosts';
-	import FilterButton from "../../components/filterButton.svelte";
+	import FilterButton from "../../components/FilterButton.svelte";
     import utils from '../../helper/utils';
 
 	export async function preload(page) {
@@ -15,7 +15,7 @@
 <script>
 	export let posts = [];
 	export let tags = [];
-	export let filterInfo = " ";
+	export let filterInfo = "";
 	$Posts = posts;
 
 	function getTag(event) {
