@@ -13,6 +13,7 @@
         let posts = await this.fetch(`blog.json`).then(r => r.json());
 		data.isLocal = isLocal;
 		data.host = host;
+		data.page = page;
         data.posts = posts;
         return { data };
 	}
@@ -22,12 +23,15 @@
 	export let data;
 	export let isLocal;
 	export let host;
+	export let page;
 	export let posts =[];
 
 	isLocal = data.isLocal; 
 	host = data.host; 
+	page = data.page; 
 	console.log(isLocal)
 	console.log(host)
+	console.log(page)
 	posts = data.posts;
 	isLocal = data.isLocal;
 	$Posts = posts;
