@@ -67,7 +67,8 @@
 
     <Header {post} {tags} on:tag={getTag} />
 
-    {post.creationDate}
+    {post.creationDate} <br>
+    {post.creationTime}
   
     
    
