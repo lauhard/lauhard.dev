@@ -9,7 +9,13 @@
     export let post = {};
     export let title;
 
-    
+    function getTag(event) {
+        console.log(event.detail.text);
+        filteredPosts= utils.filterPostsByTag(posts, event.detail.text);
+        filteredPosts.filter = event.detail.text;
+        filteredPosts.by = "tag";
+        Filtered.set(filteredPosts);
+	}
     onMount (async () => {
         let fixedPath = $page.path
         console.log(fixedPath);
@@ -20,11 +26,11 @@
             console.log("try fetch posts again...") 
             let posts = await fetch(`/blog.json`).then(r => r.json());
             post = posts.find(p => `/blog/${p.slug}`=== fixedPath )
-            console.log("current post", post);
+            // console.log("current post", post);
         } else {
             console.log("get posts from the store...")
             post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
-            console.log("current post", post);
+            // console.log("current post", post);
         }
     }) 
 
@@ -52,7 +58,7 @@
         {tag}
     {/each} <br>
 
-    <Header {post} ></Header>
+    <Header {post} {tags} on:tag={getTag} />
 
     {post.creationDate}
   

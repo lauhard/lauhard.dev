@@ -1,7 +1,11 @@
 <!-- script -->
 <script>
+    import FilterButton from './FilterButton.svelte';
     export let post = {};
+    export let tags = [];
+    console.log(post);
     $: post = post;
+    $: tags = tags;
 </script>
 <!-- html -->
 <svelte:head>
@@ -17,7 +21,11 @@
     {:catch error}
         <!-- attibutes was rejected -->
     {/await}
-    
+    {#each tags as tag}
+        <FilterButton  tag = "{tag}" on:tag>
+            <a  href='blog'>{tag}</a>
+        </FilterButton>
+    {/each}
     
 </header>
 <!-- css -->
