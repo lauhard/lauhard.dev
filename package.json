@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "lauhard.dev",
+  "description": "Blog about programming",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev --ext \".svelte .svx .md\"",

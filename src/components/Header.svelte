@@ -12,9 +12,7 @@
     <!-- head content -->
 </svelte:head>
 <header>
-    <!-- {#await post} -->
-        <!-- attibutes is pending -->
-    <!-- {:then post} -->
+
     <h1>{post.title}</h1>
     <p>by <strong>{post.author}</strong></p><br>
     <p>📅 {post.creationDate}</p>
@@ -22,9 +20,7 @@
         <p>✏️ {post.modificationDate}</p>
     {/if}
     <p>🕝 ~ {post.readingTime} min. </p>
-    <!-- {:catch error} -->
-        <!-- attibutes was rejected -->
-    <!-- {/await} -->
+
     {#each tags as tag}
         <FilterButton  tag = "{tag}" on:tag>
             <a  href='blog'>{tag}</a>
@@ -46,5 +42,4 @@
     a {
         text-decoration: none;
     }
-
 </style>

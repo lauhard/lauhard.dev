@@ -1,9 +1,11 @@
+<!-- script -->
 <script>
     import { stores } from '@sapper/app';
-    import { onMount } from 'svelte';
+    import { onMount, setContext } from 'svelte';
     const { page, preloading } = stores();
     import Header from '../../components/Header.svelte';
     import Posts from '../../store/posts';
+    import Slug from '../../store/slug';
     import FilteredPosts from '../../store/filteredPosts';
     import utils from '../../helper/utils';
 
@@ -11,7 +13,7 @@
     export let post = {};
     let posts = [];
     $: posts = posts;
-
+    
     function getTag(event) {
         let filteredPosts = utils.filterPostsByTag($Posts, event.detail.text);
         filteredPosts.filter = event.detail.text;
@@ -31,10 +33,20 @@
             console.log("get posts from the store...")
             post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
         }
+        $Slug = post.slug;
     }) 
-
 </script>
+<!-- script -->
 
+<!-- html -->
+<main>
+    <Header {post} {tags} on:tag={getTag} />  
+    <!-- blogpost layout -->
+	<slot></slot>
+</main>
+<!-- html -->
+
+<!-- style -->
 <style>
 	main {
 		position: relative;
@@ -45,10 +57,4 @@
         box-sizing: border-box;
 	}
 </style>
-
-
-<main>
-    <Header {post} {tags} on:tag={getTag} />  
-    <!-- blogpost layout -->
-	<slot></slot>
-</main>
+<!-- style -->

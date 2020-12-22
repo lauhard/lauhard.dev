@@ -12,15 +12,21 @@ tags:
 ---
 
 <script>
-    import Content from './content.md'
+    import Slug from '../../../store/slug';
+    import Content from './content.md';
     import codeSnippets from '../../../components/codeSnippets.js';
     import PrismJS from "../../../components/PrismJS.svelte";
     import Underscore from "../../../components/Underscore.svelte";
     import Capital from "../../../components/Capital.svelte";
+    export let slug = "";
+    $: slug = $Slug;
 </script>
 
 
-## Table of Content
+
+
+## Table of Content 
+{slug}
 <!-- table of content -->
 <a class ="anchor" href="/blog/setup-ssh-for-github/#check-if-open-ssh-is-running">
     <span class="capital" style="margin-right:6px">
@@ -42,27 +48,25 @@ tags:
 </a>
 <!-- table of content -->
 <br><br>
+
 <Content>
 <!-- named slots -->
-<span slot="underscore-open-ssh">
-    <strong><Underscore content="OpenSSH"/><strong>
-</span>
-<span slot="underscore-ssh-dir">
-    <strong><Underscore content="C:\Users\%username%\.ssh"/><strong>
-</span>
-<div slot='prism-check-ssh-keys'>
+<!-- code snippets -->
+<div slot='code-check-ssh-keys'>
     <PrismJS language="bash" code="{codeSnippets.checkSshKeys}" header=""/>
 </div>
-<div slot='prism-new-ssh-keys'>
+<div slot='code-new-ssh-keys'>
     <PrismJS language="bash" code="{codeSnippets.newSshKey}" header=""/>
 </div>
+<!-- code snippets -->
+<!-- images -->
 <figure slot='image-services-openssh' class="services-openssh" >
 
     ![services-openssh](./images/services-openssh-min.png)
     <figcaption>services-openssh</figcaption>
 </figure>
+<!-- images -->
 <!-- named slots -->
-
 </Content>
 
 <style>
