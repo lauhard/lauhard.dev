@@ -19,7 +19,7 @@
 	export let filterInfo = "";
 	$Posts = posts;
     tags = utils.getTags(posts);
-    
+
 	function getTag(event) {
         let filteredPosts= utils.filterPostsByTag($Posts, event.detail.text);
         filteredPosts.filter = event.detail.text;
@@ -34,6 +34,7 @@
 	
 	function showAllPosts () {
         posts = $Posts
+        $FilteredPosts = [];
         filterInfo = "";
     }
 </script>
