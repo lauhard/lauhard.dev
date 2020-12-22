@@ -14,80 +14,27 @@ tags:
 <script>
     import Slug from '../../../store/slug';
     import Content from './content.md';
-    import codeSnippets from '../../../components/codeSnippets.js';
-    import PrismJS from "../../../components/PrismJS.svelte";
-    import Underscore from "../../../components/Underscore.svelte";
-    import Capital from "../../../components/Capital.svelte";
+    import AnchorLink from "../../../components/AnchorLink.svelte";
     export let slug = "";
     $: slug = $Slug;
+    export let anchorProps = {
+        marginRight: "5px",
+        size: "2em",
+        color: "#a248f7e3"
+    }
 </script>
 
-
-
-
 ## Table of Content 
-{slug}
 <!-- table of content -->
-<a class ="anchor" href="/blog/setup-ssh-for-github/#check-if-open-ssh-is-running">
-    <span class="capital" style="margin-right:6px">
-        <Capital char = "1." content = "" size = "2em" color = "#a248f7e3" />
-    </span>
-    <Underscore content="Check if OpenSSH is running"/>
-</a>
-<a class ="anchor" href="/blog/setup-ssh-for-github/#check-if-ssh-key-exists">
-    <span class="capital" style="margin-right:0px">
-        <Capital char = "2." content = "" size = "2em" color = "#a248f7e3" />
-    </span>
-    <Underscore content="Check if SSH key exists"/>
-</a>
-<a class ="anchor" href="/blog/setup-ssh-for-github/#create-a-new-ssh-key">
-    <span class="capital" style="margin-right:2px">
-        <Capital char = "3." content = "" size = "2em" color = "#a248f7e3" />
-    </span>
-    <Underscore content="Create a new SSH key"/>
-</a>
+<AnchorLink slug="{slug}" _enum="1." id="Check if OpenSSH service is running" {anchorProps} />
+<AnchorLink slug="{slug}" _enum="2." id="Check if SSH key exists" {anchorProps} />
+<AnchorLink slug="{slug}" _enum="3." id="Create a new SSH key" {anchorProps} />
 <!-- table of content -->
 <br><br>
 
 <Content>
 <!-- named slots -->
-<!-- code snippets -->
-<div slot='code-check-ssh-keys'>
-    <PrismJS language="bash" code="{codeSnippets.checkSshKeys}" header=""/>
-</div>
-<div slot='code-new-ssh-keys'>
-    <PrismJS language="bash" code="{codeSnippets.newSshKey}" header=""/>
-</div>
-<!-- code snippets -->
-<!-- images -->
-<figure slot='image-services-openssh' class="services-openssh" >
 
-    ![services-openssh](./images/services-openssh-min.png)
-    <figcaption>services-openssh</figcaption>
-</figure>
-<!-- images -->
 <!-- named slots -->
 </Content>
 
-<style>
-.services-openssh img{
-    width:100%;
-    object-fit: cover;
-}
-a {
-    text-decoration:none;
-    height:25px;
-}
-.anchor {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-}
-.capital {
-    margin-top: 12px;
-}
-figcaption{
-    margin-top: -20px;
-    padding: 0;
-}
-</style>

@@ -19,6 +19,10 @@
 	export let filterInfo = "";
 	$Posts = posts;
     tags = utils.getTags(posts);
+    export let capitalProps = {
+        size: "2.5em",
+        color: "#a248f7e3"
+    }
 
 	function getTag(event) {
         let filteredPosts= utils.filterPostsByTag($Posts, event.detail.text);
@@ -49,7 +53,7 @@
     </h1>
     {#if filterInfo != ""}
         <div class="capital">
-            <Capital char = "#" content = "{filterInfo}" size = "2.5em" color = "#a248f7e3" />
+            <Capital char = "#" content = "{filterInfo}" {capitalProps} />
         </div> 
     {/if}
 </div>

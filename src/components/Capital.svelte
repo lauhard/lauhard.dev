@@ -1,8 +1,7 @@
 <script>
     export let char
-    export let size
-    export let color
     export let content
+    export let capitalProps
 
 </script>
 <svelte:head>
@@ -11,8 +10,8 @@
 </svelte:head>
 
 <p>
-    <span class="char" style="color: {color}; font-size: {size}; ">{char} </span>
-    <span class="content" style = "line-height: calc({size} - 0); margin: calc({size} * -.3) 0 0 10px">{content}</span>
+    <span class="char" style="color: {capitalProps.color}; font-size: {capitalProps.size}; ">{char} </span>
+    <span class="content" style = "color: {capitalProps.color}; margin: calc({capitalProps.size} * -.3) 0 0 10px">{content}</span>
 </p>
 
 <style>
@@ -28,7 +27,7 @@
     .content{
        display: inline-block;
        font-style: oblique;
-       color: #9733f5;
+       /* color: var(--main-color); */
        position: absolute;
     }
 </style>
