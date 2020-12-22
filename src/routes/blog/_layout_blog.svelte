@@ -40,7 +40,7 @@
 		position: relative;
 		max-width: 56em;
 		/* background-color: rgba(56, 107, 216, 0.85); */
-		padding: 1em;
+		padding: 1em 0;
         margin: 0 auto;
         box-sizing: border-box;
 	}

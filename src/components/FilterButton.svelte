@@ -32,12 +32,12 @@
         height: 23px;
         border-radius: 5em;
         text-decoration: none; 
-        background-color:#f8f2ff;
+        background-color:#fefeff;
         transition: ease-out  0.3s all;
         color: #9733f5;
         font-size: 8pt;
         letter-spacing: .8pt;
-        font-weight: lighter;
+        font-weight: normal;
         border: .5px solid #9733f5;
 
     }

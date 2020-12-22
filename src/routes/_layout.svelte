@@ -9,7 +9,7 @@
 		position: relative;
 		max-width: 56em;
 		background-color: #ffffff;
-		padding: 2em;
+		padding: 2em .5em;
 		margin: 0 auto;
 		padding-top: 80px;
 	}
