@@ -35,7 +35,7 @@
 <!-- css -->
 <style>
     header{
-        background-color: #a248f7e3;
+        background-color: #adff2f;
         padding: 1em;
         margin-bottom: 20px;
     }

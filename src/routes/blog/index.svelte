@@ -18,7 +18,8 @@
 	export let tags = [];
 	export let filterInfo = "";
 	$Posts = posts;
-
+    tags = utils.getTags(posts);
+    
 	function getTag(event) {
         let filteredPosts= utils.filterPostsByTag($Posts, event.detail.text);
         filteredPosts.filter = event.detail.text;
@@ -30,7 +31,7 @@
 		posts = $FilteredPosts
 		filterInfo = posts.filter;
 	}
-	tags = utils.getTags(posts);
+	
 	function showAllPosts () {
         posts = $Posts
         filterInfo = "";
@@ -106,7 +107,7 @@
         
     }
     .blogpost-card {
-        background-color: greenyellow;
+        background-color: #adff2f;
         width: 250px;
         height: 250px;
         margin: 3px;
