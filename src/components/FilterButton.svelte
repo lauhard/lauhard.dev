@@ -19,11 +19,37 @@
 </svelte:head>
 
 <!-- html -->
-<button on:click={ returnTag }>
+<button class="close" on:click={ returnTag }>
 	<slot></slot>
 </button>
 
 <!-- styl -->
 <style>
+    button{
+        font-style: none;
+        border-style: none;
+        min-width: 60px;
+        height: 23px;
+        border-radius: 5em;
+        text-decoration: none; 
+        background-color:#f8f2ff;
+        transition: ease-out  0.3s all;
+        color: #9733f5;
+        font-size: 8pt;
+        letter-spacing: .8pt;
+        font-weight: lighter;
+        border: .5px solid #9733f5;
+
+    }
+    button:hover {
+        /* background-color: crimson; */
+        /* background-color: #9733f5; */
+        background-color: #bc75ff;
+       
+        color: white;
+        transition: ease-in 0.3s all;
+    }
+  
     
+   
 </style>

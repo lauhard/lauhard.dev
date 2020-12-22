@@ -15,7 +15,6 @@
     function getTag(event) {
         let filteredPosts = utils.filterPostsByTag($Posts, event.detail.text);
         filteredPosts.filter = event.detail.text;
-        filteredPosts.by = "tag";
         $FilteredPosts = filteredPosts;
 	}
     onMount (async () => {
@@ -40,18 +39,16 @@
 	main {
 		position: relative;
 		max-width: 56em;
-		background-color: rgba(56, 107, 216, 0.85);
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
+		/* background-color: rgba(56, 107, 216, 0.85); */
+		padding: 1em;
+        margin: 0 auto;
+        box-sizing: border-box;
 	}
 </style>
 
-<main>
-   
-    <Header {post} {tags} on:tag={getTag} />
 
-   
+<main>
+    <Header {post} {tags} on:tag={getTag} />  
     <!-- blogpost layout -->
 	<slot></slot>
 </main>

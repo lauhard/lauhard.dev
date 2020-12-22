@@ -1,18 +1,13 @@
 let codeblock = {
-blab :
+checkSshKeys :
 `
-var test = 'blab';
-function ref(a,b) {
-    return b + a;
-}
-var x = ref(3,4)`,
-blub :
+$ ls -al ~/.ssh
+# Lists the files in your .ssh directory, if they exist
+`,
+newSshKey :
 `
-var test = 'blub';
-function ref(a,b) {
-    return b - a;
-}
-var x = ref(3,4)`,
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+`,
 test : `
 var test = 'test';`,
 }
