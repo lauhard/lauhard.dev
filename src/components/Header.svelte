@@ -54,7 +54,7 @@
         width: 70%;
         bottom: 0px;
         margin: 0;
-        height: 190px;
+        height: auto;
     }
     p, h1 {
         margin: 0;
