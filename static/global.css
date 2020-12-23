@@ -1,5 +1,25 @@
 :root{
-	--main-color: #a248f7e3;
+	/*  #9733f5 */
+	--main-background-color1:#a248f7e3;
+	--main-background-color2:#fefeff;
+	--main-background-color3:#adff2f;
+
+	/* navigation-button */
+	--navigation-button-background-hover: var(--main-background-color1);
+	--navigation-button-color-hover: var(--main-background-color2);
+	--navigation-button-color-active: var(--main-background-color2);
+	--navigation-button-color: var(--main-background-color1);
+	--navigation-button-background-active: var(--main-background-color1);
+	--navigation-button-background: var(--main-background-color2);
+	/* navigation-button */
+
+	/* button */
+	--filter-button-background-hover: #bc75ff;
+	--filter-button-color-hover: var(--main-background-color2);
+	--filter-button-color: var(--main-background-color1);
+	--filter-button-background: var(--main-background-color2);
+	--filter-button-border: var(--main-background-color1);
+	/* button */
 }
 *{
 	box-sizing: border-box;

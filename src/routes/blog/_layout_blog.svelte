@@ -39,8 +39,10 @@
 <!-- script -->
 
 <!-- html -->
+<Header {post} {tags} on:tag={getTag} />  
+
 <main>
-    <Header {post} {tags} on:tag={getTag} />  
+
     <!-- blogpost layout -->
 	<slot></slot>
 </main>
@@ -52,9 +54,10 @@
 		position: relative;
 		max-width: 56em;
 		/* background-color: rgba(56, 107, 216, 0.85); */
-		padding: 1em .5em;
+		padding: 1.5em 1em;
         margin: 0 auto;
         box-sizing: border-box;
-	}
+    }
+   
 </style>
 <!-- style -->

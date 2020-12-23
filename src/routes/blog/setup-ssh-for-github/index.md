@@ -30,11 +30,12 @@ tags:
 <AnchorLink slug="{slug}" _enum="2." id="Check if SSH key exists" {anchorProps} />
 <AnchorLink slug="{slug}" _enum="3." id="Create a new SSH key" {anchorProps} />
 <!-- table of content -->
-<br><br>
+<br>
 
 <Content>
 <!-- named slots -->
 
 <!-- named slots -->
 </Content>
+
 

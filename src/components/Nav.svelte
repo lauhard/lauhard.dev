@@ -33,33 +33,33 @@
 		display: block;
 		bottom: -1px;
 	}*/
-	[aria-blog], [aria-home] {
-		color: #f7eeff;
-		background:#bc75ff;
-		transition: ease-out .5s all;
+	[data-blog], [data-home] {
+		color: var(--navigation-button-color-active);
+		background-color: var(--navigation-button-background-active);
+		transition: ease-out .3s all;
 	} 
 	a {
 		text-decoration: none;
 		display: block;
 		min-width: 70px;
 		padding: 1em 0 1em 0;
-		color: #bc75ff;
+		color:var(--navigation-button-color);
 		
 	}
 	a:hover {
-		color: #f7eeff;
-		background:#bc75ff;
-		transition: ease-out .5s all;
+		color: var(--navigation-button-color-hover);
+		background: var(--navigation-button-background-hover);
+		transition: ease-out .3s all;
 	}
 	
 </style>
 
 <nav>
 	<ul>
-		<li><a aria-home="{segment === undefined ? 'page' : undefined}" href=".">Home</a></li>
+		<li><a data-home="{segment === undefined ? 'page' : undefined}" href=".">Home</a></li>
 		<!-- <li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li> -->
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch aria-blog="{segment === 'blog' ? 'page' : undefined}" href="blog">Blog</a></li>
+		<li><a rel=prefetch data-blog="{segment === 'blog' ? 'page' : undefined}" href="blog">Blog</a></li>
 	</ul>
 </nav>

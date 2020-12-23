@@ -32,22 +32,22 @@
         height: 23px;
         border-radius: 5em;
         text-decoration: none; 
-        background-color:#fefeff;
-        transition: ease-out  0.3s all;
-        color: #9733f5;
+        background-color:var(--filter-button-background);
+        transition: ease-out  0.2s all;
+        color:var(--filter-button-color);
         font-size: 8pt;
         letter-spacing: .8pt;
         font-weight: normal;
-        border: .5px solid #9733f5;
+        border: .5px solid var(--filter-button-border);
 
     }
     button:hover {
         /* background-color: crimson; */
         /* background-color: #9733f5; */
-        background-color: #bc75ff;
+        background-color: var(--filter-button-background-hover);
        
-        color: white;
-        transition: ease-in 0.3s all;
+        color: var(--filter-button-color-hover);
+        transition: ease-in 0.2s all;
     }
   
     

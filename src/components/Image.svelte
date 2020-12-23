@@ -3,6 +3,7 @@
     export let imageName;
     export let alt;
     export let desc;
+    export let imageProps;
 </script>
 <!-- script -->
 
@@ -11,21 +12,30 @@
 
 </svelte:head>
 <figure >
-    <img src="./images/{imageName}" alt="{alt}">
-    <figcaption>{desc}</figcaption>
+    <img style="width:{imageProps.width}; height:{imageProps.height}; object-fit:{imageProps.objectFit};" src="./images/{imageName}" alt="{alt}">
+    <figcaption style="width:{imageProps.width};">{desc}</figcaption>
 </figure>
 <!-- html -->
 
 <!-- style -->
 <style>
-figure img{
-    width:100%;
-    object-fit: cover;
-}
-
-figcaption{
-    margin-top: -20px;
+figure, img, figcaption{
+    margin:0;
     padding: 0;
+}
+figure{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+figcaption{
+    font-size: .9rem;
+    display: block;
+    text-align: left;
+    font-style: oblique;
+    height: auto;
 }
 </style>
 <!-- style -->

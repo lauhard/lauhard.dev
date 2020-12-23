@@ -5,6 +5,7 @@
 	import FilteredPosts from '../../store/filteredPosts';
 	import FilterButton from "../../components/FilterButton.svelte";
 	import Capital from "../../components/Capital.svelte";
+	import CardPost from "../../components/CardPost.svelte";
 	import Underscore from "../../components/Underscore.svelte";
     import utils from '../../helper/utils';
 
@@ -21,9 +22,13 @@
     tags = utils.getTags(posts);
     export let capitalProps = {
         size: "2.5em",
-        color: "#a248f7e3"
+        color: "#a248f7e3" //main color
     }
-
+    export let containerProps = {
+        delay: 10,
+        duration: 450,
+        easing: quintInOut
+    }
 	function getTag(event) {
         let filteredPosts= utils.filterPostsByTag($Posts, event.detail.text);
         filteredPosts.filter = event.detail.text;
@@ -66,16 +71,11 @@
     </div>
 {/each}
 </div>
+
 <div class="container">
     {#each posts as post (post.slug)}
         <div animate:flip="{{delay: 10, duration: 450, easing: quintInOut}}">
-            {#if post.publish == true }
-                <a rel="prefetch" href='/blog/{post.slug}' class="blogpost-card">
-                    <div>{post.title}</div> 
-                    <div>{post.author}</div>
-                    <div>{post.creationDate}</div>
-                </a>
-            {/if}
+              <CardPost {post}></CardPost>
         </div>
 	{/each}
 </div>
@@ -111,17 +111,5 @@
         justify-content: center;
         
     }
-    .blogpost-card {
-        background-color: #adff2f;
-        width: 250px;
-        height: 250px;
-        margin: 3px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    a {
-        text-decoration: none;
-    }
+    
 </style>

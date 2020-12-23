@@ -24,7 +24,7 @@
 		height: 2px;
 		left: 50%;
 		position: absolute;
-		background: var(--main-color);
+		background: var(--main-background-color1);
 		transition: width 0.3s ease 0s, left 0.3s ease 0s;
 		width: 0;
 	}
