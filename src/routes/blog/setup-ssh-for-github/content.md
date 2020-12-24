@@ -1,7 +1,6 @@
 
-
 <h2 id="check-if-open-ssh-is-running">Check if OpenSSH service is running</h2>
-On Windows 10 is the Service <strong><Underscore content="OpenSSH"/></strong> disabled by default. Right click the service, open settings and enable the service. Now you can start the service.
+The Service <strong><Underscore content="OpenSSH"/></strong> is disabled by default on Windows10. Click right on the service, open settings and enable the service. Now you can start the service.
 
 <br><br>
 <Image imageName="services-openssh-min.png" alt="services-openssh-min" desc="Windows Service OpenSSH" {imageProps} />
