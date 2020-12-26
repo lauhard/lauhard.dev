@@ -12,7 +12,7 @@
     export let tags = [];
     export let post = {};
     export let imageName;
-    console.log(imageName)
+    
     if (typeof(imageName) == 'undefined')
         imageName = "";
     let posts = [];
