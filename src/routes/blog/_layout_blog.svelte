@@ -11,9 +11,13 @@
 
     export let tags = [];
     export let post = {};
+    export let imageName;
+    console.log(imageName)
+    if (typeof(imageName) == 'undefined')
+        imageName = "";
     let posts = [];
     $: posts = posts;
-    
+  
     function getTag(event) {
         let filteredPosts = utils.filterPostsByTag($Posts, event.detail.text);
         filteredPosts.filter = event.detail.text;
@@ -39,24 +43,38 @@
 <!-- script -->
 
 <!-- html -->
-<Header {post} {tags} on:tag={getTag} />  
-
+<div class="background-svg" />
 <main>
-
-    <!-- blogpost layout -->
-	<slot></slot>
+    <Header {post} {tags} {imageName} on:tag={getTag} />  
+    <div class="content">
+        <!-- blogpost -->
+        <slot></slot>
+    </div>
 </main>
 <!-- html -->
 
 <!-- style -->
 <style>
+    .background-svg{
+        background-image: url("/images/svg-pattern.svg");
+        background-size: 400px 400px;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .content{
+		padding: 2em;
+    }
+
 	main {
-		position: relative;
-		max-width: 56em;
-		/* background-color: rgba(56, 107, 216, 0.85); */
-		padding: 1.5em 1em;
+        box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.25);
+        max-width: 56em;
         margin: 0 auto;
+		position: relative;
+        background-color: #ffffff59;
         box-sizing: border-box;
+        border: 1px solid #a5a1a15b;
     }
    
 </style>

@@ -1,9 +1,9 @@
 <!-- script -->
 <script>
-    export let imageName;
     export let alt;
     export let desc;
     export let imageProps;
+    export let imageName;
 </script>
 <!-- script -->
 

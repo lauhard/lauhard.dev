@@ -1,4 +1,5 @@
 <script>
+	// import sk from './images/successkid.jpg';
 </script>
 <style>
 	h1, p {
@@ -25,5 +26,6 @@
 </svelte:head>
 
 <h1>Welcome to lauhard.dev</h1>
+<!-- <img src="{sk}" alt=""> -->
 <p> find tutorials, cheatsheets and more...</p>
 

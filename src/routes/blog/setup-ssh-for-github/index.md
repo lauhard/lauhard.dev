@@ -6,6 +6,7 @@ author: 'Andreas Lauhard'
 creationDate: '2020-12-12'
 modificationDate: ''
 publish: true
+imageName: 'github-ssh.min.png'
 tags: 
     - Productivity
     - Github
@@ -22,6 +23,7 @@ tags:
         size: "2em",
         color: "#a248f7e3"
     }
+   
 </script>
 
 ## Table of Content 
@@ -31,7 +33,6 @@ tags:
 <AnchorLink slug="{slug}" _enum="3." id="Create a new SSH key" {anchorProps} />
 <!-- table of content -->
 <br>
-
 <Content>
 <!-- named slots -->
 

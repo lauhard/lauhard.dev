@@ -4,6 +4,11 @@
     import Image from './Image.svelte';
     export let post = {};
     export let tags = [];
+    export let imageName;
+    
+    if (imageName == "")
+        imageName = "successkid.jpg"
+
     export let imageProps={
         width:"100%",
         height: "400px",
@@ -18,7 +23,7 @@
     <!-- head content -->
 </svelte:head>
 <header >
-    <Image imageName="gitub.min.jpg" alt="as" desc="" {imageProps}></Image>
+    <Image imageName="{imageName}" alt="as" desc="" {imageProps}></Image>
     <div class="info-box">
        
         <h1>{post.title}</h1>

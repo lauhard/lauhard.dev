@@ -24,11 +24,7 @@
         size: "2.5em",
         color: "#a248f7e3" //main color
     }
-    export let containerProps = {
-        delay: 10,
-        duration: 450,
-        easing: quintInOut
-    }
+ 
 	function getTag(event) {
         let filteredPosts= utils.filterPostsByTag($Posts, event.detail.text);
         filteredPosts.filter = event.detail.text;
@@ -52,44 +48,66 @@
 	<title>Blog</title>
 </svelte:head>
 
-<div class="posts-header">
-    <h1 on:click = {showAllPosts}>
-        <Underscore content="Posts" />
-    </h1>
-    {#if filterInfo != ""}
-        <div class="capital">
-            <Capital char = "#" content = "{filterInfo}" {capitalProps} />
-        </div> 
-    {/if}
-</div>
-<div class="tag-bar">
-{#each tags as tag}
-    <div class="button-wrapper">
-        <FilterButton  tag = "{tag}" on:tag={getTag}>
-            <a class="btn" href = "/blog"> {tag} </a> 
-        </FilterButton>
-    </div>
-{/each}
-</div>
-
-<div class="container">
-    {#each posts as post (post.slug)}
-        <div animate:flip="{{delay: 10, duration: 450, easing: quintInOut}}">
-              <CardPost {post}></CardPost>
+<main>
+    <div class="wrapper">
+        <div class="posts-filter-info">
+            <h1 on:click = {showAllPosts}>
+                <Underscore content="Posts" />
+            </h1>
+            {#if filterInfo != ""}
+                <div class="capital">
+                    <Capital char = "#" content = "{filterInfo}" {capitalProps} />
+                </div> 
+            {/if}
         </div>
-	{/each}
-</div>
-<style>
-    .posts-header .capital {
-        padding: 0;
-        margin: 5px 0px 0 85px;
-        position: absolute;
 
+        <div class="tag-bar">
+            {#each tags as tag}
+                <div class="button-wrapper">
+                    <FilterButton  tag = "{tag}" on:tag={getTag}>
+                        <a class="btn" href = "/blog"> {tag} </a> 
+                    </FilterButton>
+                </div>
+            {/each}
+        </div>
+        
+        <div class="container">
+            {#each posts as post (post.slug)}
+                <div animate:flip="{{delay: 10, duration: 450, easing: quintInOut}}">
+                    <CardPost {post}></CardPost>
+                </div>
+            {/each}
+        </div>
+    </div>
+</main>
+
+<style>
+    main{
+        /* background-image: url("");
+        background-size: 100%; */
     }
-    .posts-header{
+    .wrapper {
+		position: relative;
+		max-width: 56em;
+		/* background-color: rgba(56, 107, 216, 0.85); */
+		padding: 0em 1em 0em 1em;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+   
+    
+    .posts-filter-info{
         display:flex;
         flex-direction:row;
         padding: 0 30px;
+    }
+    .posts-filter-info h1 {
+        padding-left: 20px;
+    }
+    .posts-filter-info .capital {
+        padding: 0;
+        margin: 5px 0px 0 105px;
+        position: absolute;
     }
     .tag-bar {
         width:100%;
@@ -109,7 +127,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        
     }
     
 </style>
