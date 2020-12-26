@@ -43,7 +43,7 @@
 <!-- script -->
 
 <!-- html -->
-<div class="background-svg" />
+<div class="background-svg" ></div>
 <main>
     <Header {post} {tags} {imageName} on:tag={getTag} />  
     <div class="content">
@@ -61,6 +61,7 @@
         position: fixed;
         width: 100%;
         height: 100%;
+        
     }
     
     .content{
@@ -72,9 +73,9 @@
         max-width: 56em;
         margin: 0 auto;
 		position: relative;
-        background-color: #ffffff59;
+        background-color: hsla(0, 0%, 100%, 0.30);
         box-sizing: border-box;
-        border: 1px solid #a5a1a15b;
+        border: 1px solid hsla(0, 2%, 64%, 0.35);
     }
    
 </style>

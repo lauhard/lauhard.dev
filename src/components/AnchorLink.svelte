@@ -7,6 +7,7 @@
     export let _enum = "";
     export let id;
     export let anchorProps;
+    export let margin;
     export let idSlug = slugify(id);
 
     function slugify(id) {
@@ -25,7 +26,7 @@
 
 </svelte:head>
 <a class ="anchor" href="/blog/{slug}/#{idSlug}">
-    <span class="capital" style="margin-right:{anchorProps.marginRight}">
+    <span class="capital" style="margin:{margin};">
         <Capital char = "{_enum}" content = "" capitalProps = "{anchorProps}" />
     </span>
     <Underscore content="{id}"/>
@@ -44,7 +45,7 @@ a {
     align-items:center;
 }
 .capital {
-    margin-top: 12px;
+    /* margin-top: 12px; */
 }
 </style>
 <!-- css -->
