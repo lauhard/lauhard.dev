@@ -29,7 +29,7 @@ tags:
 ## Table of Content 
 <!-- table of content -->
 <AnchorLink slug="{slug}" _enum="1." margin="12px 10px 0 0" id="Check if OpenSSH service is running" {anchorProps} />
-<AnchorLink slug="{slug}" _enum="2." margin="12px 4px 0 0" id="Check if SSH key exists" {anchorProps} />
+<AnchorLink slug="{slug}" _enum="2." margin="12px 3px 0 0" id="Check if SSH key exists" {anchorProps} />
 <AnchorLink slug="{slug}" _enum="3." margin="12px 6px 0 0" id="Create a new SSH key" {anchorProps} />
 <!-- table of content -->
 <br>
