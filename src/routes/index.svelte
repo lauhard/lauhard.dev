@@ -1,7 +1,11 @@
 <script>
-	// import sk from './images/successkid.jpg';
+	import State from '../store/state.js';
+	State.x(true, "Navigation");
 </script>
 <style>
+	.content {
+		/* margin-top: 60px; */
+	}
 	h1, p {
 		text-align: center;
 		margin: 0 auto;
@@ -25,7 +29,11 @@
 	<title>Lauhard.dev</title>
 </svelte:head>
 
-<h1>Welcome to lauhard.dev</h1>
-<!-- <img src="{sk}" alt=""> -->
-<p> find tutorials, cheatsheets and more...</p>
+<div class="content">
+	<h1>Welcome to lauhard.dev</h1>
+	<!-- <img src="{sk}" alt=""> -->
+	<p> find tutorials, cheatsheets and more...</p>
+</div>
+
+
 

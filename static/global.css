@@ -13,13 +13,20 @@
 	--navigation-button-background: var(--main-background-color2);
 	/* navigation-button */
 
-	/* button */
+	/* filter-button */
 	--filter-button-background-hover: #bc75ff;
 	--filter-button-color-hover: var(--main-background-color2);
 	--filter-button-color: var(--main-background-color1);
 	--filter-button-background: var(--main-background-color2);
 	--filter-button-border: var(--main-background-color1);
-	/* button */
+	/* filter */
+
+	/* hero banner overlay */
+	--hero-overlay-background: rgba(255, 255, 255, 0.35);
+	--hero-overlay-background-hover: rgba(255, 255, 255, 0.85);
+	--hero-overlay-color-hover: var(--main-background-color1);
+	--hero-overlay-color:#2e2e2edc;
+	/* hero banner overlay*/
 }
 *{
 	box-sizing: border-box;
@@ -33,6 +40,7 @@ body {
 	font-size: 14px;
 	line-height: 1.5;
 	color: #333;
+	background: brown;
 }
 
 h1, h2, h3, h4, h5, h6 {

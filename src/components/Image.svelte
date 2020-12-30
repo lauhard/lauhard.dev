@@ -12,7 +12,7 @@
 
 </svelte:head>
 <figure >
-    <img style="width:{imageProps.width}; height:{imageProps.height}; object-fit:{imageProps.objectFit};" src="./images/{imageName}" alt="{alt}">
+    <img style="width:{imageProps.width}; height:{imageProps.height}; border-radius:{imageProps.borderRadius}; object-fit:{imageProps.objectFit};" src="./images/{imageName}" alt="{alt}">
     <figcaption style="width:{imageProps.width};">{desc}</figcaption>
 </figure>
 <!-- html -->
@@ -21,7 +21,7 @@
 <style>
 figure, img, figcaption{
     margin:0;
-    padding: 0;
+    width: 100%;
 }
 figure{
     width:100%;

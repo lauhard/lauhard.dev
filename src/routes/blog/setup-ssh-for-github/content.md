@@ -1,12 +1,12 @@
 
 <h2 id="check-if-open-ssh-is-running">1. Check if OpenSSH service is running</h2>
-<strong><Underscore content="OpenSSH"/></strong> is disabled by default on Windows10. Open the Windows-Services and search for <strong><Underscore content="OpenSSH"/></strong>. Click right on the service, open settings start the service. For the Start-Tpe choose "Automatic".
+<strong><Underscore content="OpenSSH"/></strong> is disabled by default on Windows10. Open the Windows-Services and search for <strong><Underscore content="OpenSSH"/></strong>. Click right on the service, open settings start the service. For startup type choose "Automatic".
 
 <br><br>
-<Image imageName="services-openssh-min.png" alt="services-openssh" desc="Windows Service OpenSSH" imageProps ='{{ width:"80%", height: "auto", objectFit: "cover"}}' />
-<br>
+<Image imageName="services-openssh-min.png" alt="services-openssh" desc="Windows Service OpenSSH" imageProps ='{{ width:"50%", height: "auto", objectFit: "cover", borderRadius:"20px"}}' />
+<br>    
 
-<Image imageName="properties-open-ssh.min.png" alt="proprties-openssh" desc="Service OpenSSH Properties" imageProps="{{width:'50%', height:'auto' ,objectFit: 'cover'}}" />
+<Image imageName="properties-open-ssh.min.png" alt="proprties-openssh" desc="Service OpenSSH Properties" imageProps="{{width:'30%', height:'auto' ,objectFit: 'cover', borderRadius:'20px'}}" />
 <br>
 
 <h2 id="check-if-ssh-key-exists">2. Check if SSH key exists</h2>

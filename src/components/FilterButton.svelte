@@ -35,9 +35,9 @@
         background-color:var(--filter-button-background);
         transition: ease-out  0.2s all;
         color:var(--filter-button-color);
-        font-size: 8pt;
+        font-size: 9pt;
         letter-spacing: .8pt;
-        font-weight: normal;
+        font-weight: 500;
         border: .5px solid var(--filter-button-border);
 
     }

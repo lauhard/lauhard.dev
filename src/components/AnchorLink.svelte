@@ -27,7 +27,8 @@
 </svelte:head>
 <a class ="anchor" href="/blog/{slug}/#{idSlug}">
     <span class="capital" style="margin:{margin};">
-        <Capital char = "{_enum}" content = "" capitalProps = "{anchorProps}" />
+        <!-- <Capital char = "{_enum}" content = "" capitalProps = "{anchorProps}" /> -->
+        {_enum}
     </span>
     <Underscore content="{id}"/>
 </a>
