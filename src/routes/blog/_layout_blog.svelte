@@ -100,7 +100,7 @@
         background-image: url("/images/svg-pattern.svg");
         background-size: 400px 400px;
         box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.25);
-        /* max-width: 86em; */
+        /* max-width: 86em; * /
         width:100%;
         margin: -200px auto;
 		position: relative;
