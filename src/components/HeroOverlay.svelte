@@ -9,13 +9,17 @@
     leave();
 
     function enter() {
-		backgroundColor = heroOverlayProps.backgroundColorOnHover ?? "red";
-		color = heroOverlayProps.colorOnHover ?? "black";
+        if (typeof(heroOverlayProps.backgroundColorOnHover) == 'undefined')
+            backgroundColor =  "red";
+        if (typeof(heroOverlayProps.colorOnHover) == 'undefined')
+            color = "black";
 	}
 
 	function leave() {
-        backgroundColor = heroOverlayProps.backgroundColor ?? "black";
-		color = heroOverlayProps.color ?? "red";
+        if (typeof(heroOverlayProps.backgroundColorOnHover) == 'undefined')
+            backgroundColor = "black";
+        if (typeof(heroOverlayProps.colorOnHover) == 'undefined')
+		    color = "red";
 	}
 
 </script>
