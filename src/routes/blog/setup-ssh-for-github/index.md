@@ -51,7 +51,12 @@ tags:
 <!-- named slots -->
 </Content>
 <style>
-  
+    .image-container{
+        display: flex; flex-direction:row; width:100% ; height:auto; flex-wrap: wrap; justify-content:center; align-items:center;
+    }
+    .image-margin{
+        margin:15px;
+    }
 </style>
 
 

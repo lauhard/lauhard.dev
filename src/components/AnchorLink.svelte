@@ -6,7 +6,7 @@
     export let slug;
     export let _enum = "";
     export let id;
-    export let anchorProps;
+    // export let anchorProps;
     export let margin;
     export let idSlug = slugify(id);
 
@@ -45,8 +45,8 @@ a {
     flex-direction:row;
     align-items:center;
 }
-.capital {
-    /* margin-top: 12px; */
-}
+/* .capital {
+    margin-top: 12px;
+} */
 </style>
 <!-- css -->

@@ -7,7 +7,7 @@
 		observe("#intersector", (entry)=>{
 			if (entry.isIntersecting) {
 				console.log(entry.isIntersecting);
-				document.getElementById("navigation").classList.remove("navgiation-small");
+				document.getElementById("navigation").classList.remove("navigation-small");
 				document.getElementById("navigation_background").classList.add("navigation-background");
 				document.getElementById("logo_small").classList.add("logo-big");
 				document.getElementById("logo_small").classList.remove("logo-small");
@@ -19,7 +19,7 @@
 			} else {
 				console.log(entry.isIntersecting);
 				document.getElementById("navigation_background").classList.remove("navigation-background");
-				document.getElementById("navigation").classList.add("navgiation-small");
+				document.getElementById("navigation").classList.add("navigation-small");
 				document.getElementById("logo_small").classList.remove("logo-big");
 				document.getElementById("logo_small").classList.add("logo-small");
 				// document.getElementById("logo_small").classList.remove("hide");
@@ -35,7 +35,7 @@
 </script>
 
 <style>
-	.navigation-background, .navigation-big, .navgiation-small {
+	.navigation-background, .navigation-big, .navigation-small {
 		background-color:var(--navigation-button-background-active);
 		font-weight: 500;
 		width:100%;
@@ -95,7 +95,7 @@
 		background-color: var(--navigation-button-background-active);
 		transition: ease-out .3s all;
 	} 
-	.navgiation-small {
+	.navigation-small {
 		height: 90px;
 		clip-path: polygon(
 			0 0,
@@ -107,16 +107,16 @@
 		border-bottom: 3px solid var(--navigation-button-background-active);
 		transition: ease .3s all;
 	}
-	.navgiation-small ul {
+	.navigation-small ul {
 		bottom: 2.5px;
 		transition: ease .3s all;
 		align-items: center;
 	}
-	.navgiation-small li {
+	.navigation-small li {
 		min-height: 40px;
 		min-width: 40px;
 	}
-	.navgiation-small a {
+	.navigation-small a {
 		padding: 1em;
 	}
 	a {
@@ -201,12 +201,69 @@
 		content: "✍️";
 		font-size: 2em;
 	} */
+	@media (max-width: 600px) {
+		.navigation-background{
+			display: none;
+		}
+		.navigation-big{
+			height: 90px;
+			clip-path: polygon(
+				0 0,
+				100% 0,
+				100% 100%,
+				0 100%
+			);
+			background-color: var(--main-background-color2);
+			border-bottom: 3px solid var(--navigation-button-background-active);
+			transition: ease .3s all;
+			font-size: 10pt;
+		}
+		.icon {
+			display: none;
+		}
+		.navigation-big ul {
+			bottom: 2.5px;
+			transition: ease .3s all;
+			align-items: center;
+		}
+		.navigation-big li {
+			min-height: 40px;
+			min-width: 40px;
+		}
+		a {
+			padding: 1em;
+		}
+		.logo-big {
+			border-radius: 50%;
+			display: flex !important;
+			justify-content: center;
+			top: 0;
+			position: relative;
+			align-items: center;
+			word-wrap: normal;
+			text-align: center;
+			background: var(--navigation-button-background-active);
+			color: var(--navigation-button-background);
+			transition: ease .3s all;
+			width: 70px;
+			height: 70px;
+			margin: 7px 15px;
+			border:2px solid var(--navigation-button-background-active);
+			transition: ease .3s all;
+			
+
+		}
+		.logo-big span{
+			font-size: 8pt;
+		}
+     
+	}
 	
 	
 </style>
 <div id="intersector" style = "height:1px; width:100%; top:{intersect}; position:absolute; "></div>
 <div id="navigation_background" class="navigation-background"></div>
-<nav id="navigation" class="navigation-big navgiation-small">
+<nav id="navigation" class="navigation-big navigation-small">
 	<ul class="pages">
 		<li>
 			<span class="icon hide">☕</span>
@@ -227,13 +284,14 @@
 			<span>LOGO</span>
 		</div>
 		<li>
-			<span class="icon hide">🦮</span>
+			<span class="icon hide">📚</span>
 			<a rel=prefetch data-active="{segment === 'tutorial' ? 'page' : undefined}" href="tutorial">
 				<p>Guides</p>
 			</a>
 		</li>
 		<li>
-			<span class="icon hide">🧻</span>
+			<!--  🧻-->
+			<span class="icon hide">📑</span> 
 			<a rel=prefetch data-active="{segment === 'snippets' ? 'page' : undefined}" href="snippets">
 				<p>Snippets</p>
 			</a>
