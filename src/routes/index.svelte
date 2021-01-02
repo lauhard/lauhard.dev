@@ -13,6 +13,8 @@
 		align-items: center;
 		flex-direction: column;
 		background: rgb(231, 231, 238);
+		transition: all ease-out .1s;
+
 		/* justify-content: center; */
 	}
 	p{
@@ -36,7 +38,7 @@
 	p:hover{
 		transform: rotate(0deg);
 		background-color:tomato;
-		transition: all ease-in-out .2s;
+		transition: all ease-out .2s;
 		color: white;
 	}
 	.crazy2 {
@@ -54,10 +56,14 @@
 		font-weight: 300;
 		margin: 0 0 0.5em 0;
 	} */
-	@media (min-width: 480px) {
-		/* h1 {
-			font-size: 4em;
-		} */
+	@media (max-width: 500px) {
+		.content {
+			top: 50px;
+			display: flex;
+			width: 100%;
+			height: calc(100vh - 50px);
+			transition: all ease-out .3s;
+		}
 	}
 </style>
 

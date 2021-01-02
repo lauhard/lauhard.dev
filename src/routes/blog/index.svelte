@@ -133,5 +133,14 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+    @media (max-width: 500px) {
+		main {
+			top: 50px;
+			display: flex;
+			width: 100%;
+			height: calc(100vh - 50px);
+			transition: all ease-out .3s;
+		}
+	}
     
 </style>

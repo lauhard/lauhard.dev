@@ -249,9 +249,15 @@
         .content, header{
             width:100%; 
             position: relative;
-            margin-bottom: 0px;
-        transition: all ease .3s;
+            margin: 0px;
+            /* margin-top: 80px; */
+            padding-top: 60px;
+            transition: all ease .3s;
+           
 
+        }
+        header{
+            top:60px;
         }
         .left, .right, .aside-slide-up{
             left:0px;

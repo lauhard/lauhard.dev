@@ -201,7 +201,7 @@
 		content: "✍️";
 		font-size: 2em;
 	} */
-	@media (max-width: 600px) {
+	@media (max-width: 500px) {
 		.navigation-background{
 			display: none;
 		}
