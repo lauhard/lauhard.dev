@@ -83,26 +83,32 @@
 
 <style>
     main{
-        /* background-image: url("");
-        background-size: 100%; */
+        position: absolute;
+		top: calc(300px - 3vw);
+		width: 100%;
+        height: calc(100vh - calc(300px - 3vw));
+		padding: 5em 1em 1em 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: rgb(231, 231, 238);
     }
     .wrapper {
-		position: relative;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
 		max-width: 56em;
-		/* background-color: rgba(56, 107, 216, 0.85); */
 		padding: 0em 1em 0em 1em;
         margin: 0 auto;
         box-sizing: border-box;
+        height: 100%;
     }
-   
-    
     .posts-filter-info{
         display:flex;
         flex-direction:row;
         padding: 0 30px;
-    }
-    .posts-filter-info h1 {
-        padding-left: 20px;
     }
     .posts-filter-info .capital {
         padding: 0;
@@ -115,7 +121,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(255, 255, 255);
     }
     .button-wrapper {
         margin:5px;

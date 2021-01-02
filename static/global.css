@@ -1,8 +1,13 @@
 :root{
 	/*  #9733f5 */
 	--main-background-color1:#a248f7e3;
+	--main-background-color3:tomato;
 	--main-background-color2:#fefeff;
-	--main-background-color3:#adff2f;
+
+	/*post-card*/
+	--card-background-hover: rgba(255, 99, 71, 0.65);
+	--card-background: var(--main-background-color3);
+	/*post-card*/
 
 	/* navigation-button */
 	--navigation-button-background-hover: var(--main-background-color1);
@@ -40,7 +45,8 @@ body {
 	font-size: 14px;
 	line-height: 1.5;
 	color: #333;
-	background: brown;
+	background: rgb(231, 231, 238); 
+
 }
 
 h1, h2, h3, h4, h5, h6 {

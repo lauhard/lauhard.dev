@@ -19,8 +19,9 @@
 
 <!-- style -->
 <style>
-.blogpost-card {
-        background-color: var(--main-background-color3);
+    .blogpost-card {
+        background-color: var(--card-background-hover);
+        border-radius: 15px;
         width: 250px;
         height: 250px;
         margin: 3px;
@@ -28,6 +29,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+		transition: all ease .3s;
+
+    }
+    .blogpost-card:hover {
+        background-color: var(--card-background);
+        color: white;
+		transition: all ease .3s;
     }
     a {
         text-decoration: none;

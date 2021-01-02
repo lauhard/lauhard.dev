@@ -10,16 +10,26 @@
 
     function enter() {
         if (typeof(heroOverlayProps.backgroundColorOnHover) == 'undefined')
-            backgroundColor =  "red";
+            backgroundColor = "red";
+        else
+            backgroundColor = heroOverlayProps.backgroundColorOnHover;
+
         if (typeof(heroOverlayProps.colorOnHover) == 'undefined')
             color = "black";
+        else
+            color = heroOverlayProps.colorOnHover
 	}
 
 	function leave() {
-        if (typeof(heroOverlayProps.backgroundColorOnHover) == 'undefined')
-            backgroundColor = "black";
-        if (typeof(heroOverlayProps.colorOnHover) == 'undefined')
-		    color = "red";
+        if (typeof(heroOverlayProps.backgroundColor) == 'undefined')
+            backgroundColor = "red";
+        else
+            backgroundColor = heroOverlayProps.backgroundColor;
+
+        if (typeof(heroOverlayProps.color) == 'undefined')
+            color = "black";
+        else
+            color = heroOverlayProps.color
 	}
 
 </script>
@@ -49,9 +59,7 @@
         {/if}
 
         <div style="margin-top:5px;">
-           
             <slot></slot>
-
         </div>
     </div>
 
@@ -61,17 +69,14 @@
     .hero-overlay {
         position: absolute;
         padding: 1em;
-        margin-bottom: 20px;
         border-radius: 0 10px 0 20px;
         width: 70%;
-        bottom: 0px;
+        bottom: 0;
         margin: 0;
-        height: auto;
-        transition: all ease-in-out .8s;
+        transition: all ease-in-out .3s;
     }
     .hero-overlay:hover {
-        
-        transition: all ease-in-out .8s;
+        transition: all ease-in-out .3s;
     }
     p, h1 {
         margin: 0;
@@ -81,7 +86,7 @@
     h1 {
         font-weight: bold;
     }
-    @media (max-width: 1360px) {
+    @media (max-width: 700px) {
 		.hero-overlay {
             width: 100%;
             border-radius: 0 10px 20px 20px;

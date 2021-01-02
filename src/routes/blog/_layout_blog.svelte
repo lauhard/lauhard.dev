@@ -10,17 +10,22 @@
     import Slug from '../../store/slug';
     import FilteredPosts from '../../store/filteredPosts';
     import utils from '../../helper/utils';
+    import observe from '../../helper/intersectionObserver';
 
     export let tags = [];
     export let post = {};
     export let imageName;
     export let heroOverlayProps;
-    console.log(heroOverlayProps)
+
+    export let intersect = '140pt';
+
     export let imageProps={
         width:"100%",
-        height: "400px",
+        height: "350px",
         objectFit: "cover",
-        borderRadius: "20px"
+        borderRadius: "20px",
+        position: "left",
+        figureWith: "100%",
     }
    
 
@@ -29,7 +34,6 @@
   
     if (typeof(heroOverlayProps) == 'undefined')
         heroOverlayProps = {};
-
     if (typeof(imageName) == 'undefined')
         imageName = ""; //TODO: set default image
 
@@ -54,41 +58,68 @@
             post = $Posts.find(p => `/blog/${p.slug}`=== fixedPath )
         }
         $Slug = post.slug;
+
+        observe("#intersector", (entry)=>{
+			if (entry.isIntersecting) {
+				let elements = document.getElementsByTagName("aside");
+				for (const element of elements) {
+                    element.classList.remove("aside-slide-up")
+					// element.style.top = "300px";
+				}
+			} else {
+				let elements = document.getElementsByTagName("aside");
+				for (const element of elements) {
+                    element.classList.add("aside-slide-up")
+					// element.style.top = "120px";
+				}
+			}
+		});
     }) 
 </script>
 <!-- script -->
 
 <!-- html -->
-<div class="background-svg" ></div>
+<div class="background-svg" >
+    
+</div>
+<div id="intersector" style = "height:1px; width:100%; top:{intersect}; position:absolute; "></div>
 
 <main>
-   
-    
-    
+    <header>
+        <Image imageName="{imageName}" alt="as" desc="" {imageProps}>
+        <HeroOverlay {post} {heroOverlayProps}>
+            {#each tags as tag}
+                <FilterButton  tag = "{tag}" on:tag>
+                    <a  href='blog'>{tag}</a>
+                </FilterButton>
+            {/each}
+        </HeroOverlay>
+    </Image>
+    </header>
     <div class="content">
-        <header>
-            <Image imageName="{imageName}" alt="as" desc="" {imageProps}></Image>
-            <HeroOverlay {post} {heroOverlayProps}>
-                {#each tags as tag}
-                    <FilterButton  tag = "{tag}" on:tag>
-                        <a  href='blog'>{tag}</a>
-                    </FilterButton>
-                {/each}
-            </HeroOverlay>
-        </header>
+        
         <br>
         <!-- blogpost -->
         <slot></slot>
         <!-- blogpost -->
     </div>
-    <aside class="left">
+    <aside class="left aside-slide-up">
         <h1>test</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam accusantium mollitia modi dicta doloribus, delectus culpa similique. Soluta, odit.</p>
     </aside> 
-    <aside class="right">
-        <h1>test</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam accusantium mollitia modi dicta doloribus, delectus culpa similique. Soluta, odit.</p>
+    <aside class="right aside-slide-up">
+        <div class="sec1">
+            <h1>test</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam ac</p>
+
+        </div>
+        <div class="sec2">
+            <h1>test 2</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam accusantium mollitia modi dicta doloribus, delectus culpa similique. Soluta, odit.</p>
+
+        </div>
     </aside> 
+   
 </main>
 
 
@@ -97,81 +128,143 @@
 <!-- style -->
 <style>
     main {
-        background-image: url("/images/svg-pattern.svg");
+        /* background-image: url("/images/svg-pattern1.svg");
+		background-attachment: fixed;
         background-size: 400px 400px;
-        box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.25);
-        /* max-width: 86em; * /
-        width:100%;
-        margin: -200px auto;
-		position: relative;
-        background-color: hsla(0, 0%, 100%, 0.733);
-        box-sizing: border-box;
-        /* border: 1px solid hsla(0, 2%, 64%, 0.35); */
+        height: 100%;
+        width: 100%; */
+        background: #e7e7ee;
     }
     h1, p {
         margin:0;
         padding:0;
     }
     header{
-        width: 100%;
-        height: 400px;
+        width: calc(50% - 2em);
+        top:320px;
+        z-index: 1;
         position: relative;
         margin: 0px auto;
+        margin-bottom: 30px;
     }
     aside {
         width: 25%;
         height: auto;
-        top: 300px;
+        top: 320px;
         position: fixed;
-        padding: 2em;
-        transition: top ease-in-out .8s;
+        transition: top ease-in-out .3s;
+    }
+    .aside-slide-up {
+        top: 120px;
     }
     .right {
-        background: #000;
         right:10px;
     }
     .left {
         left:10px;
+    }
+    .left {
+        padding: 2em;
         background-color: aquamarine;
     }
+    .right > .sec1, .right > .sec2 {
+        width: 100%;
+        padding: 2em;
+        margin-bottom: .3em;
+    }
+    .sec1 {
+        background: gray;
+    }
+    .sec2 {
+        background: black;
+    }
+    
     .background-svg{
         position: fixed;
         width: 100%;
         height: 100%; 
     }
     .content{
-        padding: 120px 2em 0 2em; 
-        background:gray; 
+        padding: 2em; 
+        background:rgb(248, 248, 248); 
         overflow-x: auto;
         scroll-behavior: smooth;
         word-wrap: break-word;
-        word-break: break-all;
-        width: calc(50% - 40px);
-        /* min-width: 400px; */
-        margin: 0 auto;
-        transition: all ease-in-out .2s;
+        width: calc(50% - 2em);
+        /* fixed header */
+        margin: 280px auto; 
+
+        margin-bottom: 80px;
+        /** loose header
+        * margin-top: -30px; 
+        * transform: translate(calc(50% + 2em), 0);
+        */
+
+        /* box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.25); */
+        border: .5px solid hsla(0, 2%, 20%, 0.199);
+        border-radius: 20px;
     }
-    @media (max-width: 1000px) {
-		aside {
+    @media (max-width: 1300px) {
+        .content, header{
+            width:80%; 
+            position: relative;
+            margin-bottom: 0px;
+        transition: all ease .3s;
+
+        }
+        .left, .right, .aside-slide-up{
+            left:0px;
+            right: 0px;
+            top:0px;
+        }
+        aside {
             position: relative;
             width:80%;
-            margin: 10px auto;
-            top:0;
-           
-            transition: all ease-in-out .8s;
-            
-            height: 200px;
+            margin: .3em auto;
+            transition: all ease .3s;
         }
-        .left{
+        
+    }
+    @media (max-width: 700px) {
+        .content, header{
+            width:90%; 
+            position: relative;
+            margin-bottom: 0px;
+        transition: all ease .3s;
+
+        }
+        .left, .right, .aside-slide-up{
             left:0px;
-        }
-        .right{
             right: 0px;
+            top:0px;
         }
-        .content{
-            width:80%; 
-            transition: all ease-in-out .2s;
+        aside {
+            position: relative;
+            width:90%;
+            margin: .3em auto;
+            transition: all ease .3s;
         }
+    }
+    @media (max-width: 500px) {
+        .content, header{
+            width:100%; 
+            position: relative;
+            margin-bottom: 0px;
+        transition: all ease .3s;
+
+        }
+        .left, .right, .aside-slide-up{
+            left:0px;
+            right: 0px;
+            top:0px;
+        }
+        aside {
+            position: relative;
+            width:100%;
+            margin: .3em auto;
+            transition: all ease .3s;
+        }
+     
 	}
    
 </style>

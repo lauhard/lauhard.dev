@@ -11,24 +11,28 @@
 <svelte:head>
 
 </svelte:head>
-<figure >
+<figure style="align-items:{imageProps.position}; width:{imageProps.figureWith};">
     <img style="width:{imageProps.width}; height:{imageProps.height}; border-radius:{imageProps.borderRadius}; object-fit:{imageProps.objectFit};" src="./images/{imageName}" alt="{alt}">
-    <figcaption style="width:{imageProps.width};">{desc}</figcaption>
+    <div>
+        <slot></slot>
+    </div>
+    <figcaption style="max-width:{imageProps.width};">{desc}</figcaption>
 </figure>
 <!-- html -->
 
 <!-- style -->
 <style>
+
 figure, img, figcaption{
     margin:0;
-    width: 100%;
+    
 }
 figure{
-    width:100%;
+    height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;*/
+    justify-content: center; 
 }
 figcaption{
     font-size: .9rem;
@@ -36,6 +40,7 @@ figcaption{
     text-align: left;
     font-style: oblique;
     height: auto;
+    width: 100%;
 }
 </style>
 <!-- style -->

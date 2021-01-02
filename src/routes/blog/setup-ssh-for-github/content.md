@@ -3,10 +3,11 @@
 <strong><Underscore content="OpenSSH"/></strong> is disabled by default on Windows10. Open the Windows-Services and search for <strong><Underscore content="OpenSSH"/></strong>. Click right on the service, open settings start the service. For startup type choose "Automatic".
 
 <br><br>
-<Image imageName="services-openssh-min.png" alt="services-openssh" desc="Windows Service OpenSSH" imageProps ='{{ width:"50%", height: "auto", objectFit: "cover", borderRadius:"20px"}}' />
-<br>    
+<div style="display: flex; flex-direction:row; width:100% ; height:auto;">
+<Image imageName="services-openssh-min.png" alt="services-openssh" desc="Windows Service OpenSSH" imageProps ='{{ width:"300px", height: "300px", objectFit: "cover", borderRadius:"10px", position:"center", figureWith:"100%"}}' />
+<Image imageName="properties-open-ssh.min.png" alt="proprties-openssh" desc="Service OpenSSH Properties" imageProps="{{width:'300px', height:'300px' ,objectFit: 'cover', borderRadius:'10px', position:'center', figureWith:'100%'}}" />
+</div>
 
-<Image imageName="properties-open-ssh.min.png" alt="proprties-openssh" desc="Service OpenSSH Properties" imageProps="{{width:'30%', height:'auto' ,objectFit: 'cover', borderRadius:'20px'}}" />
 <br>
 
 <h2 id="check-if-ssh-key-exists">2. Check if SSH key exists</h2>

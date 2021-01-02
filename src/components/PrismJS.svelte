@@ -73,26 +73,32 @@
 
 <style>
   code[class*="language-"] {
-    background-color: transparent !important;
+    background-color: transparent ;
   }
   p {
     margin: 0;
     padding: 0;
   }
+  pre::before {
+   content: "" !important;
+  }
+  /* pre:hover{
+    
+  } */
 </style>
 
 <svelte:head>
   <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
-    type="text/css" />
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+      type="text/css" />
   <link
-    rel="stylesheet"
-    href="https://tutsplus.github.io/syntax-highlighter-demos/highlighters/Prism/prism_okaidia.css" />
+      rel="stylesheet"
+      href="https://tutsplus.github.io/syntax-highlighter-demos/highlighters/Prism/prism_okaidia.css" />
 </svelte:head>
 <div class="w3-container">
   <p><strong>{header}</strong></p>
-  <pre><code
-      class="language-{language}"
-      style="backgroud-color:red !important">{code}</code></pre>
+  <pre>
+    <code class="language-{language}">{code}</code>
+  </pre>
 </div>

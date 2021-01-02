@@ -1,66 +1,67 @@
-<script>
+<script >
+	import { onMount } from 'svelte';
+	import observe from '../helper/intersectionObserver'
+	export let intersect = '140pt';
+
+	onMount(() => {
+		observe("#intersector", (entry)=>{
+			if (entry.isIntersecting) {
+				console.log(entry.isIntersecting);
+				document.getElementById("navigation").classList.remove("navgiation-small");
+				document.getElementById("navigation_background").classList.add("navigation-background");
+				document.getElementById("logo_small").classList.add("logo-big");
+				document.getElementById("logo_small").classList.remove("logo-small");
+				// document.getElementById("logo_small").classList.remove("hide");
+				let elements = document.getElementsByClassName("icon");
+				for (const element of elements) {
+					element.classList.remove("hide");
+				}
+			} else {
+				console.log(entry.isIntersecting);
+				document.getElementById("navigation_background").classList.remove("navigation-background");
+				document.getElementById("navigation").classList.add("navgiation-small");
+				document.getElementById("logo_small").classList.remove("logo-big");
+				document.getElementById("logo_small").classList.add("logo-small");
+				// document.getElementById("logo_small").classList.remove("hide");
+				let elements = document.getElementsByClassName("icon");
+				for (const element of elements) {
+					element.classList.add("hide");
+				}
+			}		
+		});
+	});
 	export let segment;
+	
 </script>
 
 <style>
-	.nav-bg {
-		background:var(--navigation-button-background-active);
+	.navigation-background, .navigation-big, .navgiation-small {
+		background-color:var(--navigation-button-background-active);
+		font-weight: 500;
 		width:100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 304px;
-		z-index:1 ;
-        clip-path: polygon(
-            0 0,
-            100% 0,
-            100% calc(100% - 3vw),
-            0 100%
-        );
+		position: fixed;
+		z-index:10;
+		clip-path: polygon(
+			0 0,
+			100% 0,
+			100% calc(100% - 2.4vw),
+			0 100%
+		);
+		transition: ease .5s clip-path;
 	}
-	nav {
-		border-bottom: 1px solid #b76aff62;
-		width:100%;
+	.navigation-big {
 		background-image: url("/images/Liquid-Cheese.svg");
 		background-attachment: fixed;
-		background-size: cover;
-		position: relative;
+		background-size: cover; 
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		/* position: fixed; */
-		z-index: 1;
-		font-weight: 500;
 		background-color: #EB6464;
-        height: 300px;
-        clip-path: polygon(
-            0 0,
-            100% 0,
-            100% calc(100% - 3vw),
-            0 100%
-        );
+		height: 300px;
 	}
-	nav .logo{
-		width: 100px;
-		height: 100px;
-		margin-top:30px;
-		border-radius: 50%;
-		background: rgb(133, 133, 133);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		word-wrap: normal;
-		text-align: center;
-		border:3px solid var(--navigation-button-background-active);
+	.navigation-background{
+		height: 303px;
 	}
-	.logo span{
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		font-size: bold;
-		color: aliceblue;
-	}
-    
 	ul {
 		margin: 0;
 		padding: 0;
@@ -68,8 +69,10 @@
 		flex-direction: row;
 		width: 100%;
 		justify-content: center;
-		bottom: 40px;
+	}
+	.navigation-big ul {
 		position: absolute;
+		bottom: 40px;
 	}
 	ul .icon{
 		font-size: 2em;
@@ -77,12 +80,113 @@
 		padding: 0;
 		line-height: unset;
 	}
-	li {
-		display: block;
-		float: left;
+	.navigation-big li {
+		display: flex;
+		flex-direction: column;
 		margin: 0 .5px;
 		text-align: center;
+		min-height: 80px;
+		min-width: 100px;
 	}
+	/* .navigation-big li:hover {
+	} */
+	.navigation-big [data-active] {
+		color: var(--navigation-button-color-active);
+		background-color: var(--navigation-button-background-active);
+		transition: ease-out .3s all;
+	} 
+	.navgiation-small {
+		height: 90px;
+		clip-path: polygon(
+			0 0,
+			100% 0,
+			100% 100%,
+			0 100%
+		);
+		background-color: var(--main-background-color2);
+		border-bottom: 3px solid var(--navigation-button-background-active);
+		transition: ease .3s all;
+	}
+	.navgiation-small ul {
+		bottom: 2.5px;
+		transition: ease .3s all;
+		align-items: center;
+	}
+	.navgiation-small li {
+		min-height: 40px;
+		min-width: 40px;
+	}
+	.navgiation-small a {
+		padding: 1em;
+	}
+	a {
+		text-decoration: none;
+		display: block;
+		padding: .5em;
+		width: 100%;
+		height: 100%;
+		border-radius: 15px;
+		color:var(--navigation-button-color);
+		transition: ease .5s all;
+	}
+	a:hover {
+		background-color: var(--navigation-button-background-active);
+		color: var(--navigation-button-color-hover);
+		transition: ease .5s all;
+	}
+	.logo {	
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		word-wrap: normal;
+		text-align: center;
+		background: var(--navigation-button-background-active);
+		color: var(--navigation-button-background);
+		transition: ease .3s all;
+	}
+	.logo-big{
+		top:-130px;
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		font-weight: 600;
+		border:3px solid var(--navigation-button-background-active);
+		transition: ease .3s all;
+
+	}
+	.logo-small{
+		width: 70px;
+		height: 70px;
+		margin: 7px 15px;
+		border:2px solid var(--navigation-button-background-active);
+		transition: ease .3s all;
+
+	}
+	.logo span{
+		width: 100%;
+		margin: 0;
+		padding: 5px;
+		font-size: bold;
+		word-wrap: break-word;
+		letter-spacing: 0;
+		font-size: 10pt;
+	}
+	.logo-big span{
+		font-size: 11pt;
+	}
+	.logo-small span{
+		font-size: 8pt;
+	}
+	
+	p {
+		margin:0;
+		padding:0;
+	}
+	.hide {
+		display: none;
+	}
+
 	/* [aria-current]::after {
 		position: absolute;
 		content: '';
@@ -92,51 +196,21 @@
 		display: block;
 		bottom: -1px;
 	}*/
-	[data-active] {
-		color: var(--navigation-button-color-active);
-		background-color: var(--navigation-button-background-active);
-		transition: ease-out .3s all;
-	} 
-	a {
-		text-decoration: none;
-		display: block;
-		padding: .3em 1em;
-		color:var(--navigation-button-color);
-		border-radius: 20%;
-		
-	}
-	a p {
-		margin:0;
-		padding:0;
-	}
-	a:hover {
-		color: var(--navigation-button-color-hover);
-		background: var(--navigation-button-background-hover);
-		transition: ease-out .5s all;
-		/* font-size: 1.1em; */
-		border-radius: 20%;
-		/* color: white; */
-	}
+	
 	/* a::after{
 		content: "✍️";
 		font-size: 2em;
 	} */
-	/* li:hover {
-		font-size: 1.2em;
-		color: white;
-		background: var(--navigation-button-background-hover);
-		transition: ease-out .1s all;
-	} */
+	
+	
 </style>
-<div class="nav-bg"></div>
-<nav>
-	<div class="logo">
-		<span>LAUHARD .DEV</span>
-	</div>
+<div id="intersector" style = "height:1px; width:100%; top:{intersect}; position:absolute; "></div>
+<div id="navigation_background" class="navigation-background"></div>
+<nav id="navigation" class="navigation-big navgiation-small">
 	<ul class="pages">
 		<li>
+			<span class="icon hide">☕</span>
 			<a data-active="{segment === undefined ? 'page' : undefined}" href=".">
-				<span class="icon">☕</span>
 				<p>Home</p>
 			</a>
 		</li>
@@ -144,22 +218,24 @@
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		the blog data when we hover over the link or tap it on a touchscreen -->
 		<li>
+			<span class="icon hide">💭</span>	
 			<a rel=prefetch data-active="{segment === 'blog' ? 'page' : undefined}" href="blog">
-				<span class="icon">💭</span>	
 				<p>Blog</p>
 			</a>
 		</li>
+		<div id="logo_small" class="logo logo-big logo-small">
+			<span>LOGO</span>
+		</div>
 		<li>
+			<span class="icon hide">🦮</span>
 			<a rel=prefetch data-active="{segment === 'tutorial' ? 'page' : undefined}" href="tutorial">
-				<span class="icon">🦮</span>
-				<p>Guids</p>
+				<p>Guides</p>
 			</a>
 		</li>
 		<li>
+			<span class="icon hide">🧻</span>
 			<a rel=prefetch data-active="{segment === 'snippets' ? 'page' : undefined}" href="snippets">
-				<span class="icon">🧻</span>
 				<p>Snippets</p>
-			
 			</a>
 		</li>
 	</ul>
