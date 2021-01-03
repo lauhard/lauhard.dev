@@ -67,13 +67,12 @@
 <!-- css -->
 <style>
     .hero-overlay {
-        position: absolute;
-        padding: 1em;
-        border-radius: 0 10px 0 20px;
         width: 70%;
-        bottom: 0;
-        margin: 0;
+        margin-top: -196px;
+        padding: 1em;
         transition: all ease-in-out .3s;
+        border-radius: 0 10px 0px 20px;
+
     }
     .hero-overlay:hover {
         transition: all ease-in-out .3s;

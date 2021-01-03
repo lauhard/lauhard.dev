@@ -21,8 +21,8 @@
 
     export let imageProps={
         width:"100%",
-        height: "350px",
-        objectFit: "cover",
+        height: "auto",
+        objectFit: "contain",
         borderRadius: "20px",
         position: "left",
         figureWith: "100%",
@@ -87,14 +87,15 @@
 <main>
     <header>
         <Image imageName="{imageName}" alt="as" desc="" {imageProps}>
-        <HeroOverlay {post} {heroOverlayProps}>
+              <HeroOverlay {post} {heroOverlayProps}>
             {#each tags as tag}
                 <FilterButton  tag = "{tag}" on:tag>
                     <a  href='blog'>{tag}</a>
                 </FilterButton>
             {/each}
         </HeroOverlay>
-    </Image>
+        </Image>
+      
     </header>
     <div class="content">
         
@@ -230,7 +231,7 @@
             width:90%; 
             position: relative;
             margin-bottom: 0px;
-        transition: all ease .3s;
+            transition: all ease .3s;
 
         }
         .left, .right, .aside-slide-up{
@@ -247,16 +248,16 @@
     }
     @media (max-width: 500px) {
         .content, header{
-            width:100%; 
+            width:97%; 
             position: relative;
-            margin: 0px;
+            margin: 0 auto;
             /* margin-top: 80px; */
-            padding-top: 60px;
+            padding: 60px .5em 0 .5em;
             transition: all ease .3s;
-           
-
         }
         header{
+            width:100%;
+            margin: 0;
             top:60px;
         }
         .left, .right, .aside-slide-up{
@@ -266,7 +267,7 @@
         }
         aside {
             position: relative;
-            width:100%;
+            width:98%;
             margin: .3em auto;
             transition: all ease .3s;
         }
