@@ -70,7 +70,7 @@
         width: 70%;
         margin-top: -196px;
         padding: 1em;
-        transition: all ease-in-out .3s;
+        transition: width ease .3s;
         border-radius: 0 10px 0px 20px;
 
     }
@@ -88,6 +88,15 @@
     @media (max-width: 700px) {
 		.hero-overlay {
             width: 100%;
+            border-radius: 0 10px 20px 20px;
+        }
+    }
+    @media (max-width: 400px) {
+		.hero-overlay {
+            font-size: 10pt;
+            width: 100%;
+            padding: 1em;
+            margin-top: -163px;
             border-radius: 0 10px 20px 20px;
         }
 	}
