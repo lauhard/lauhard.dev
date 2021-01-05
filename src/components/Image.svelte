@@ -14,7 +14,9 @@
 <figure style="align-items:{imageProps.position}; width:{imageProps.figureWith};">
     <img style="width:{imageProps.width}; height:{imageProps.height}; border-radius:{imageProps.borderRadius}; object-fit:{imageProps.objectFit};" src="./images/{imageName}" alt="{alt}">
     <div>
+        <!-- image overlay -->
         <slot></slot>
+        <!-- image overlay -->
     </div>
     <figcaption style="max-width:{imageProps.width};">{desc}</figcaption>
 </figure>
@@ -25,7 +27,6 @@
 
 figure, img, figcaption{
     margin:0;
-    
 }
 figure{
     height: auto;

@@ -1,3 +1,4 @@
+<!-- script -->
 <script >
 	import { onMount } from 'svelte';
 	import observe from '../helper/intersectionObserver'
@@ -11,7 +12,6 @@
 				document.getElementById("navigation_background").classList.add("navigation-background");
 				document.getElementById("logo_small").classList.add("logo-big");
 				document.getElementById("logo_small").classList.remove("logo-small");
-				// document.getElementById("logo_small").classList.remove("hide");
 				let elements = document.getElementsByClassName("icon");
 				for (const element of elements) {
 					element.classList.remove("hide");
@@ -22,7 +22,6 @@
 				document.getElementById("navigation").classList.add("navigation-small");
 				document.getElementById("logo_small").classList.remove("logo-big");
 				document.getElementById("logo_small").classList.add("logo-small");
-				// document.getElementById("logo_small").classList.remove("hide");
 				let elements = document.getElementsByClassName("icon");
 				for (const element of elements) {
 					element.classList.add("hide");
@@ -33,7 +32,49 @@
 	export let segment;
 	
 </script>
+<!-- script -->
 
+<!-- html -->
+<div id="intersector" style = "height:1px; width:100%; top:{intersect}; position:absolute; "></div>
+<div id="navigation_background" class="navigation-background"></div>
+<nav id="navigation" class="navigation-big navigation-small">
+	<ul class="pages">
+		<li>
+			<span class="icon hide">☕</span>
+			<a data-active="{segment === undefined ? 'page' : undefined}" href=".">
+				<p>Home</p>
+			</a>
+		</li>
+		<!-- <li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li> -->
+		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+		the blog data when we hover over the link or tap it on a touchscreen -->
+		<li>
+			<span class="icon hide">💭</span>	
+			<a rel=prefetch data-active="{segment === 'blog' ? 'page' : undefined}" href="blog">
+				<p>Blog</p>
+			</a>
+		</li>
+		<div id="logo_small" class="logo logo-big logo-small">
+			<span>LOGO</span>
+		</div>
+		<li>
+			<span class="icon hide">📚</span>
+			<a rel=prefetch data-active="{segment === 'tutorial' ? 'page' : undefined}" href="tutorial">
+				<p>Guides</p>
+			</a>
+		</li>
+		<li>
+			<!--  🧻-->
+			<span class="icon hide">📑</span> 
+			<a rel=prefetch data-active="{segment === 'snippets' ? 'page' : undefined}" href="snippets">
+				<p>Snippets</p>
+			</a>
+		</li>
+	</ul>
+</nav>
+<!-- html -->
+
+<!-- style -->
 <style>
 	.navigation-background, .navigation-big, .navigation-small {
 		background-color:var(--navigation-button-background-active);
@@ -250,51 +291,10 @@
 			margin: 7px 15px;
 			border:2px solid var(--navigation-button-background-active);
 			transition: ease .3s all;
-			
-
 		}
 		.logo-big span{
 			font-size: 8pt;
 		}
-     
 	}
-	
-	
 </style>
-<div id="intersector" style = "height:1px; width:100%; top:{intersect}; position:absolute; "></div>
-<div id="navigation_background" class="navigation-background"></div>
-<nav id="navigation" class="navigation-big navigation-small">
-	<ul class="pages">
-		<li>
-			<span class="icon hide">☕</span>
-			<a data-active="{segment === undefined ? 'page' : undefined}" href=".">
-				<p>Home</p>
-			</a>
-		</li>
-		<!-- <li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li> -->
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		the blog data when we hover over the link or tap it on a touchscreen -->
-		<li>
-			<span class="icon hide">💭</span>	
-			<a rel=prefetch data-active="{segment === 'blog' ? 'page' : undefined}" href="blog">
-				<p>Blog</p>
-			</a>
-		</li>
-		<div id="logo_small" class="logo logo-big logo-small">
-			<span>LOGO</span>
-		</div>
-		<li>
-			<span class="icon hide">📚</span>
-			<a rel=prefetch data-active="{segment === 'tutorial' ? 'page' : undefined}" href="tutorial">
-				<p>Guides</p>
-			</a>
-		</li>
-		<li>
-			<!--  🧻-->
-			<span class="icon hide">📑</span> 
-			<a rel=prefetch data-active="{segment === 'snippets' ? 'page' : undefined}" href="snippets">
-				<p>Snippets</p>
-			</a>
-		</li>
-	</ul>
-</nav>
+<!-- style -->

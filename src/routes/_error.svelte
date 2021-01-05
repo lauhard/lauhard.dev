@@ -1,10 +1,29 @@
+<!-- script -->
 <script>
 	export let status;
 	export let error;
 
 	const dev = process.env.NODE_ENV === 'development';
 </script>
+<!-- script -->
 
+<!-- html -->
+<svelte:head>
+	<title>{status}</title>
+</svelte:head>
+
+<div class="error">
+	<h1>{status}</h1>
+
+	<p>{error.message}</p>
+	
+	{#if dev && error.stack}
+		<pre>{error.stack}</pre>
+	{/if}
+</div>
+<!-- html -->
+
+<!-- style -->
 <style>
 	.error {
 		display: flex;
@@ -34,19 +53,5 @@
 		}
 	}
 </style>
-
-<svelte:head>
-	<title>{status}</title>
-</svelte:head>
-
-<div class="error">
-	<h1>{status}</h1>
-
-	<p>{error.message}</p>
-	
-	{#if dev && error.stack}
-		<pre>{error.stack}</pre>
-	{/if}
-</div>
-
+<!-- style -->
 

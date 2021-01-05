@@ -1,3 +1,4 @@
+<!-- script -->
 <script context="module">
 	import { flip } from 'svelte/animate';
 	import { quintIn, quintOut, quintInOut } from 'svelte/easing';
@@ -8,7 +9,6 @@
 	import CardPost from "../../components/CardPost.svelte";
 	import Underscore from "../../components/Underscore.svelte";
     import utils from '../../helper/utils';
-
 	export async function preload(page) {
         let posts = await this.fetch(`blog.json`).then(r => r.json());
         return { posts };
@@ -36,20 +36,21 @@
 		posts = $FilteredPosts
 		filterInfo = posts.filter;
 	}
-	
 	function showAllPosts () {
         posts = $Posts
         $FilteredPosts = [];
         filterInfo = "";
     }
 </script>
+<!-- script -->
 
+<!-- html -->
 <svelte:head>
 	<title>Blog</title>
 </svelte:head>
 
-<main>
-    <div class="wrapper">
+<div class="content-wrapper">
+    <div class="content">
         <div class="posts-filter-info">
             <h1 on:click = {showAllPosts}>
                 <Underscore content="Posts" />
@@ -60,7 +61,6 @@
                 </div> 
             {/if}
         </div>
-
         <div class="tag-bar">
             {#each tags as tag}
                 <div class="button-wrapper">
@@ -70,8 +70,7 @@
                 </div>
             {/each}
         </div>
-        
-        <div class="container">
+        <div class="card-container">
             {#each posts as post (post.slug)}
                 <div animate:flip="{{delay: 10, duration: 450, easing: quintInOut}}">
                     <CardPost {post}></CardPost>
@@ -79,12 +78,13 @@
             {/each}
         </div>
     </div>
-</main>
+</div>
+<!-- html -->
 
+<!-- style -->
 <style>
-    main{
+    .content-wrapper{
         position: absolute;
-		/* top: calc(300px - 3vw); */
 		width: 100%;
         height: calc(100vh - calc(300px - 3vw));
 		padding: 5em 1em 1em 1em;
@@ -94,7 +94,7 @@
         flex-direction: column;
         background: rgb(231, 231, 238);
     }
-    .wrapper {
+    .content {
         position: relative;
         display: flex;
         justify-content: center;
@@ -108,7 +108,7 @@
     .posts-filter-info{
         display:flex;
         flex-direction:row;
-        padding: 0 30px;
+        padding: 30px 0 20px 0;
     }
     .posts-filter-info .capital {
         padding: 0;
@@ -125,22 +125,13 @@
     .button-wrapper {
         margin:5px;
     }
-    .container {
+    .card-container {
         width:100%;
         height: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-    }
-    /* @media (max-width: 500px) {
-		main {
-			top: 50px;
-			display: flex;
-			width: 100%;
-			height: calc(100vh - 50px);
-			transition: all ease-out .3s;
-		}
-	} */
-    
+    }    
 </style>
+<!-- style -->

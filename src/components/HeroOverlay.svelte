@@ -33,38 +33,40 @@
 	}
 
 </script>
+<!-- script -->
+
 <!-- html -->
 <svelte:head>
     <!-- head content -->
 </svelte:head>
-    <div class="hero-overlay" on:mouseover={enter} on:mouseout={leave} style="color: {color}; background: {backgroundColor}" >
-        {#if typeof(post.title) != 'undefined' && post.title != ''}
-            <h1>{post.title}</h1>
-        {/if}
+<div class="hero-overlay" on:mouseover={enter} on:mouseout={leave} style="color: {color}; background: {backgroundColor}" >
+    {#if typeof(post.title) != 'undefined' && post.title != ''}
+        <h1>{post.title}</h1>
+    {/if}
 
-        {#if typeof(post.author) != 'undefined' && post.author != ''}
-            <p>by <strong>{post.author}</strong></p><br>
-        {/if}
+    {#if typeof(post.author) != 'undefined' && post.author != ''}
+        <p>by <strong>{post.author}</strong></p><br>
+    {/if}
 
-        {#if typeof(post.creationDate) != 'undefined' && post.creationDate != ''}
-            <span>📅 <strong>{post.creationDate}</strong></span><br>
-        {/if}
+    {#if typeof(post.creationDate) != 'undefined' && post.creationDate != ''}
+        <span>📅 <strong>{post.creationDate}</strong></span><br>
+    {/if}
 
-        {#if typeof(post.modificationDate) != 'undefined' && post.modificationDate != ''}
-            <span>✏️ {post.modificationDate}</span><br>
-        {/if}
+    {#if typeof(post.modificationDate) != 'undefined' && post.modificationDate != ''}
+        <span>✏️ {post.modificationDate}</span><br>
+    {/if}
 
-        {#if typeof(post.readingTime) != 'undefined' && post.readingTime != ''}
-            <span>🕝 <strong>~{post.readingTime} min.</strong></span>
-        {/if}
+    {#if typeof(post.readingTime) != 'undefined' && post.readingTime != ''}
+        <span>🕝 <strong>~{post.readingTime} min.</strong></span>
+    {/if}
 
-        <div style="margin-top:5px;">
-            <slot></slot>
-        </div>
+    <div style="margin-top:5px;">
+        <slot></slot>
     </div>
+</div>
+<!-- html -->
 
-
-<!-- css -->
+<!-- style -->
 <style>
     .hero-overlay {
         height: auto;
@@ -105,3 +107,4 @@
         }
 	}
 </style>
+<!-- style -->

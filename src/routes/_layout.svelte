@@ -1,8 +1,18 @@
+<!-- script -->
 <script>
 	import Navigation from "../components/Navigation.svelte";
 	export let segment;
 </script>
+<!-- script -->
 
+<!-- html -->
+<Navigation {segment} />
+<main>
+	<slot />
+</main>
+<!-- html -->
+
+<!-- style -->
 <style>
 	main {
 		position: absolute;
@@ -21,12 +31,5 @@
 		}
 	}
 </style>
-
-<!-- <img src="{sk}" alt=""> -->
-<Navigation {segment} />
-
-<main>
-
-	<slot />
-</main>
+<!-- style -->
 

@@ -160,7 +160,7 @@
     .sec1 { background: gray;}
     .sec2 { background: black;}
     .background-svg{
-        background-image: url("/images/svg-pattern1.svg");
+        /* background-image: url("/images/svg-pattern.svg"); */
 		background-attachment: fixed;
         background-size: 400px 400px;
         position: fixed;
