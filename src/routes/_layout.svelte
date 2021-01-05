@@ -4,29 +4,28 @@
 </script>
 
 <style>
-	/* :global(body){
-          background-color: lightseagreen;
-		background-image: url("/images/test.svg");
-          background-size: 100%;
-    } */
 	main {
-		position: relative;
-		background: rgb(231, 231, 238);
-
-		/* clip-path: polygon(
-            0  100,
-            100% 0,
-            100% 100%,
-            0 100%
-          ); */
-		/* background-color: rgb(168, 117, 21); */
+		position: absolute;
+		top: calc(300px - 3vw);
+		display: flex;
+		width: 100%;
+		height: calc(100vh - calc(300px - 3vw));
+	}
+	@media (max-width: 500px) {
+		main {
+			top: 50px;
+			display: flex;
+			width: 100%;
+			/* height: auto; */
+			transition: all ease-out .3s;
+		}
 	}
 </style>
 
 <!-- <img src="{sk}" alt=""> -->
+<Navigation {segment} />
 
 <main>
-	<Navigation {segment} />
 
 	<slot />
 </main>

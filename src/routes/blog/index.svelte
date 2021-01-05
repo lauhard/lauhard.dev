@@ -84,7 +84,7 @@
 <style>
     main{
         position: absolute;
-		top: calc(300px - 3vw);
+		/* top: calc(300px - 3vw); */
 		width: 100%;
         height: calc(100vh - calc(300px - 3vw));
 		padding: 5em 1em 1em 1em;
@@ -133,7 +133,7 @@
         flex-wrap: wrap;
         justify-content: center;
     }
-    @media (max-width: 500px) {
+    /* @media (max-width: 500px) {
 		main {
 			top: 50px;
 			display: flex;
@@ -141,6 +141,6 @@
 			height: calc(100vh - 50px);
 			transition: all ease-out .3s;
 		}
-	}
+	} */
     
 </style>

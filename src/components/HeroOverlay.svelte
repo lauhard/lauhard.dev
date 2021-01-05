@@ -67,11 +67,15 @@
 <!-- css -->
 <style>
     .hero-overlay {
-        width: 70%;
-        margin-top: -196px;
+        height: auto;
+        min-width: 70%;
+        word-break: break-all;
+        position: absolute;
+        bottom:0;
+        width: auto;
         padding: 1em;
         transition: width ease .3s;
-        border-radius: 0 10px 0px 20px;
+        border-radius: 0 10px 0px 0px;
 
     }
     .hero-overlay:hover {
@@ -88,7 +92,7 @@
     @media (max-width: 700px) {
 		.hero-overlay {
             width: 100%;
-            border-radius: 0 10px 20px 20px;
+            border-radius: 0 10px 0px 0px;
         }
     }
     @media (max-width: 400px) {
@@ -97,7 +101,7 @@
             width: 100%;
             padding: 1em;
             margin-top: -163px;
-            border-radius: 0 10px 20px 20px;
+            border-radius: 0 10px 0px 0px;
         }
 	}
 </style>

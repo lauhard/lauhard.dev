@@ -19,23 +19,17 @@ tags:
 
 <script>
     import Slug from '../../../store/slug';
-    import State from '../../../store/state';
     import { onMount, setContext } from 'svelte';
-
     import Content from './content.md';
     import AnchorLink from "../../../components/AnchorLink.svelte";
     export let slug = "";
     $: slug = $Slug;
   
-   
-    // State.x(false, "Navigation");
-    console.log($State);
     export let anchorProps = {
         marginRight: "0px",
         size: "2em",
         color: "#a248f7e3"
     }
-   
 </script>
 
 ## Table of Content 
@@ -57,7 +51,6 @@ tags:
     .image-margin{
         margin:15px;
     }
-    
 </style>
 
 
