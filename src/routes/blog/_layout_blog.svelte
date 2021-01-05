@@ -206,7 +206,7 @@
     }
     @media (max-width: 500px) {
         .content, header, aside{
-            width:90%; 
+            width:98%; 
         }
 	}
    
