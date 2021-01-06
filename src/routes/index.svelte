@@ -32,6 +32,7 @@
 		background: rgb(231, 231, 238);
 		transition: all ease-out .1s;
 		margin: 0 auto;
+		width: 100%;
 	}
 	.greeter {
 		width: 100%;
