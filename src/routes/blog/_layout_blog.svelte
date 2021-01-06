@@ -97,13 +97,21 @@
         <h1>test</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam accusantium mollitia modi dicta doloribus, delectus culpa similique. Soluta, odit.</p>
     </aside>  -->
-    <aside class="right aside-slide-up">
-        <div class="sec1">
-            <h1>test</h1>
+    <aside class="aside-right aside-slide-up">
+        <!-- <div class="aside-right--box" id="about-me">
+            <h1>About me</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam ac</p>
+        </div> -->
+        <div class="aside-right--box" id="categories">
+            <h2>Categories</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam accusantium mollitia modi dicta doloribus, delectus culpa similique. Soluta, odit.</p>
         </div>
-        <div class="sec2">
-            <h1>test 2</h1>
+        <div class="aside-right--box" id="subscribe">
+            <h2>Subscribe</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam accusantium mollitia modi dicta doloribus, delectus culpa similique. Soluta, odit.</p>
+        </div>
+        <div class="aside-right--box" id="follow">
+            <h2>Follow</h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iste debitis expedita rerum ducimus veniam itaque, perferendis explicabo totam, ipsam accusantium mollitia modi dicta doloribus, delectus culpa similique. Soluta, odit.</p>
         </div>
     </aside> 
@@ -138,27 +146,27 @@
         */
         /* box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.25); */
     }
-    aside {
-        width: 25%;
+    .aside-right {
+        width: 22%;
         height: auto;
         top: 320px;
         position: fixed;
         transition: top ease-in-out .3s;
         padding: 0 0em;
+        margin: 0 2% 0 2%;
+        right: 0px;
+        
     }
     .aside-slide-up {
         top: 130px;
     }
-    .right {
-        right:10px;
-    }
-    .right > .sec1, .right > .sec2 {
+    .aside-right--box {
         width: 100%;
-        padding: 2em;
+        padding: 1.5em;
         margin-bottom: .3em;
+        border: 0.5px solid rgba(170, 170, 170, 0.7);
     }
-    .sec1 { background: gray;}
-    .sec2 { background: black;}
+ 
     .background-svg{
         /* background-image: url("/images/svg-pattern.svg"); */
 		background-attachment: fixed;
@@ -178,34 +186,42 @@
         margin:0;
         padding:0;
     } */
-
+    h2{
+        margin: 0 0 .5em 0;
+    }
     @media (max-width: 1300px) {
-        .content, header, aside{
+        .content, header, .aside-right{
             width:70%; 
             margin-bottom: 0px; 
             transition: all ease .3s;
         }
-        .left, .right, .aside-slide-up{
+        .left, .aside-right, .aside-slide-up{
             left:0px;
             right: 0px;
             top:0px;
         }
-        aside {
+        .aside-right {
             position: relative;
             margin: .3em auto;
         }
     }
     @media (max-width: 700px) {   
-        .content, header, aside{
+        .wrapper {
+            margin-top: 30px;
+        }
+        .content, header, .aside-right{
             width:90%; 
             margin: 0 auto;
         } 
-        aside {
+        .aside-right {
             margin: .3em auto;
         }
     }
     @media (max-width: 500px) {
-        .content, header, aside{
+        .wrapper {
+            margin-top: 70px;
+        }
+        .content, header, .aside-right{
             width:98%; 
         }
 	}
