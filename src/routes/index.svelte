@@ -57,7 +57,7 @@
 		color: white;
 	}
 	.crazy1 {
-		transform: rotate(5deg)
+		transform: rotate(4deg)
 	}
 	.crazy2 {
 		transform: rotate(-3deg)
