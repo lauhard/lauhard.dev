@@ -109,7 +109,6 @@
         display:flex;
         flex-direction:row;
         margin-top: 80px;
-        /* padding: 30px 0 20px 0; */
     }
     .posts-filter-info .capital {
         padding: 0;

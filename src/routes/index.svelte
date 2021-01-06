@@ -43,11 +43,11 @@
 	}
 	.wave {
 		display: inline-block;
-		font-size: 28pt;
+		font-size: 2.5em;
 	}
 	p{
 		padding: 1em 3em;
-		margin: 15px;
+		margin: 1.1em;
 		background-color: rgba(255, 99, 71, 0.65);
 	}
 	p:hover{
@@ -57,7 +57,7 @@
 		color: white;
 	}
 	.crazy1 {
-		transform: rotate(3deg)
+		transform: rotate(deg)
 	}
 	.crazy2 {
 		transform: rotate(-3deg)
