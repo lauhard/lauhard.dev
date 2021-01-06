@@ -53,7 +53,7 @@
     <div class="content">
         <div class="posts-filter-info">
             <h1 on:click = {showAllPosts}>
-                <Underscore content="Posts" />
+                <Underscore>Posts</Underscore>
             </h1>
             {#if filterInfo != ""}
                 <div class="capital">
@@ -108,11 +108,12 @@
     .posts-filter-info{
         display:flex;
         flex-direction:row;
-        padding: 30px 0 20px 0;
+        margin-top: 80px;
+        /* padding: 30px 0 20px 0; */
     }
     .posts-filter-info .capital {
         padding: 0;
-        margin: 5px 0px 0 105px;
+        margin: 18px 0px 0 105px;
         position: absolute;
     }
     .tag-bar {
