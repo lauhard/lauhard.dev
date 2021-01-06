@@ -18,8 +18,10 @@
 		position: absolute;
 		top: calc(300px - 3vw);
 		display: flex;
+		min-width: 380px;
 		width: 100%;
 		height: calc(100vh - calc(300px - 3vw));
+		
 	}
 	@media (max-width: 500px) {
 		main {

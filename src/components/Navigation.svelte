@@ -76,6 +76,18 @@
 
 <!-- style -->
 <style>
+	nav {
+		font-size: 16px;
+	}
+	p {
+		/* font-size: 16px; */
+		/* margin: 0px;
+		padding: 0px; */
+	}
+	a {
+		font-size: inherit;
+		
+	}
 	.navigation-background, .navigation-big, .navigation-small {
 		background-color:var(--navigation-button-background-active);
 		font-weight: 500;
@@ -116,7 +128,7 @@
 		bottom: 40px;
 	}
 	ul .icon{
-		font-size: 2em;
+		font-size: 1.5em;
 		margin: 0;
 		padding: 0;
 		line-height: unset;
@@ -124,13 +136,9 @@
 	.navigation-big li {
 		display: flex;
 		flex-direction: column;
-		margin: 0 .5px;
+		margin: 0 .5em;
 		text-align: center;
-		min-height: 80px;
-		min-width: 100px;
 	}
-	/* .navigation-big li:hover {
-	} */
 	.navigation-big [data-active] {
 		color: var(--navigation-button-color-active);
 		background-color: var(--navigation-button-background-active);
@@ -154,18 +162,14 @@
 		align-items: center;
 	}
 	.navigation-small li {
-		min-height: 40px;
-		min-width: 40px;
-	}
-	.navigation-small a {
-		padding: 1em;
+		margin: 0 .5em;
+		font-size: .9em;
 	}
 	a {
 		text-decoration: none;
 		display: block;
-		padding: .5em;
+		padding: .5em 1.2em;
 		width: 100%;
-		height: 100%;
 		border-radius: 15px;
 		color:var(--navigation-button-color);
 		transition: ease .5s all;
@@ -197,9 +201,10 @@
 
 	}
 	.logo-small{
-		width: 70px;
-		height: 70px;
-		margin: 7px 15px;
+		min-width: 60px;
+		width: 60px;
+		height: 60px;
+		margin: 9px .2em;
 		border:2px solid var(--navigation-button-background-active);
 		transition: ease .3s all;
 
@@ -211,18 +216,13 @@
 		font-size: bold;
 		word-wrap: break-word;
 		letter-spacing: 0;
-		font-size: 10pt;
 	}
 	.logo-big span{
-		font-size: 11pt;
+		font-size: 1em;
 	}
 	.logo-small span{
-		font-size: 8pt;
-	}
-	
-	p {
-		margin:0;
-		padding:0;
+		
+		font-size: .8em;
 	}
 	.hide {
 		display: none;
@@ -257,7 +257,6 @@
 			background-color: var(--main-background-color2);
 			border-bottom: 3px solid var(--navigation-button-background-active);
 			transition: ease .3s all;
-			font-size: 10pt;
 		}
 		.icon {
 			display: none;
@@ -268,12 +267,10 @@
 			align-items: center;
 		}
 		.navigation-big li {
-			min-height: 40px;
-			min-width: 40px;
+			margin: 0 .2em;
+			font-size: .8em;
 		}
-		a {
-			padding: 1em;
-		}
+		
 		.logo-big {
 			border-radius: 50%;
 			display: flex !important;
@@ -286,14 +283,16 @@
 			background: var(--navigation-button-background-active);
 			color: var(--navigation-button-background);
 			transition: ease .3s all;
-			width: 70px;
-			height: 70px;
-			margin: 7px 15px;
+			min-width: 60px;
+			width: 60px;
+			height: 60px;
+			margin: 9px .2em;
 			border:2px solid var(--navigation-button-background-active);
 			transition: ease .3s all;
+			
 		}
 		.logo-big span{
-			font-size: 8pt;
+			font-size: .8em;
 		}
 	}
 </style>

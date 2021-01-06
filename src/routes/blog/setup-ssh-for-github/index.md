@@ -20,25 +20,35 @@ tags:
 <script>
     import Slug from '../../../store/slug';
     import { onMount, setContext } from 'svelte';
+
     import Content from './content.md';
     import AnchorLink from "../../../components/AnchorLink.svelte";
-    export let slug = "";
-    $: slug = $Slug;
+    import Underscore from "../../../components/Underscore.svelte";
+    export let href = "";
+    $: href = "/blog/" + $Slug;
   
-    export let anchorProps = {
-        marginRight: "0px",
-        size: "2em",
-        color: "#a248f7e3"
-    }
+   
 </script>
 
 ## Table of Content 
 <!-- table of content -->
-<AnchorLink slug="{slug}" _enum="1." margin="0px 3px 0 0" id="Check if OpenSSH service is running" {anchorProps} />
-<AnchorLink slug="{slug}" _enum="2." margin="0px 3px 0 0" id="Check if SSH key exists" {anchorProps} />
-<AnchorLink slug="{slug}" _enum="3." margin="0px 3px 0 0" id="Create a new SSH key" {anchorProps} />
-<!-- table of content -->
+<Underscore>
+    <AnchorLink {href} _enum="1." margin="0px 3px 0 0"  id="Check if OpenSSH service is running" slugID = true/>
+</Underscore >
 <br>
+ <Underscore>
+    <AnchorLink {href} _enum="2." margin="0px 3px 0 0" id="Check if SSH key exists" slugID = true />
+</Underscore>
+<br>
+ <Underscore>
+    <AnchorLink {href} _enum="3." margin="0px 3px 0 0" id="Create a new SSH key" slugID = "true" />
+</Underscore >
+<br>
+ <Underscore>
+    <AnchorLink {href} _enum="4." margin="0px 3px 0 0" id="Add the SSH Key to your Github" slugID = "true" />
+</Underscore >
+<!-- table of content -->
+
 <Content>
 <!-- named slots -->
 
@@ -51,6 +61,10 @@ tags:
     .image-margin{
         margin:15px;
     }
+    h2 {
+        margin: 1em 0 .3em 0;
+    }
+    
 </style>
 
 

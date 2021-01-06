@@ -1,12 +1,15 @@
 <script>
-    export let content;
 </script>
 
 <svelte:head>
 
 </svelte:head>
 
-<span>{content}</span>
+<span>
+
+<slot></slot>
+
+</span>
 
 <style>
     span {

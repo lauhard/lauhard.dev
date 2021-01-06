@@ -3,15 +3,19 @@
     import Underscore from "./Underscore.svelte";
     import Capital from "./Capital.svelte";
 
-    export let slug;
+    export let href = "";
     export let _enum = "";
-    export let id;
+    export let id = "";
     // export let anchorProps;
-    export let margin;
-    export let idSlug = slugify(id);
+    export let margin = "";
+    export let slugID = false;
+    export let idSlug ="";
 
+    if (slugID) {
+        idSlug = slugify(id)
+    }
     function slugify(id) {
-        return id.toString().toLowerCase()
+        return "/#" + id.toString().toLowerCase()
             .replace(/\s+/g, '-')           // Replace spaces with -
             .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
             .replace(/\-\-+/g, '-')         // Replace multiple - with single -
@@ -25,12 +29,13 @@
 <svelte:head>
 
 </svelte:head>
-<a class ="anchor" href="/blog/{slug}/#{idSlug}">
+<a class ="anchor" href="{href}{idSlug}">
     <span class="capital" style="margin:{margin};">
         <!-- <Capital char = "{_enum}" content = "" capitalProps = "{anchorProps}" /> -->
         {_enum}
     </span>
-    <Underscore content="{id}"/>
+    
+    {id}
 </a>
 <!-- html -->
 

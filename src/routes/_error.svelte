@@ -43,14 +43,14 @@
 		margin: 0 0 0.5em 0;
 	}
 
-	p {
+	/* p {
 		margin: 1em auto;
-	}
+	} */
 
 	@media (min-width: 480px) {
-		h1 {
+		/* h1 {
 			font-size: 4em;
-		}
+		} */
 	}
 </style>
 <!-- style -->

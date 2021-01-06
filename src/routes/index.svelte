@@ -46,6 +46,7 @@
 	}
 	p{
 		padding: 1em 3em;
+		margin: 15px;
 		background-color: rgba(255, 99, 71, 0.65);
 	}
 	p:hover{
