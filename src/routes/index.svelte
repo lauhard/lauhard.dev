@@ -50,12 +50,14 @@
 		padding: 1em;
 		margin: 1.1em;
 		background-color: rgba(255, 99, 71, 0.65);
+		text-align: center;
 	}
 	p:hover{
 		transform: rotate(0deg);
 		background-color:tomato;
 		transition: all ease-out .2s;
 		color: white;
+		text-align: center;
 	}
 	.crazy1 {
 		transform: rotate(4deg)
@@ -85,9 +87,6 @@
 	}
 	.crazy3:hover::after{
 		content: " ⚒️";
-	}
-	.crazy3:hover{
-		text-align: center;
 	}
 
 	.crazy4 {
