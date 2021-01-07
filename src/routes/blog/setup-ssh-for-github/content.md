@@ -1,12 +1,6 @@
-I know, I know, Github has a very good documentation but I wanted to give you a quick guide for setting up an SSH connetion to your Github.
-The SSH protocol is a very powerful protocoll. It is great and secure way to connect to other servers and services. If you work with Github, I would highly recommend you to set it up!
-You can find some more Information about SSH and the Links to the Github documentation in the **<Underscore><AnchorLink href="{href}" id="Resources" slugID = "true" /></Underscore>** section.
-
-<div class="padding-left-top">
+<Capital char="I" capitalProps='{{size: "2.2em", color: "#a248f7e3", font: "New Times Roman"}}'/> know, I know, Github has a very good documentation but I wanted to give you a quick guide for setting up an SSH connetion to your Github. The SSH protocol is a very powerful protocoll. It is great and secure way to connect to other servers and services. If you work with Github, I would highly recommend you to set it up! You can find some more information about SSH and the links to the Github documentation in the <strong><Underscore><Link {href} id="Resources" slugID = "true" /> 📙</Underscore></strong> section.
 
 <slot name="table-of-content"></slot>
-
-</div>
 
 <h2 id="check-if-open-ssh-is-running">1. Check if OpenSSH service is running</h2>
 
@@ -26,12 +20,12 @@ You can find some more Information about SSH and the Links to the Github documen
 
 By default, SSH keys will be stored in the directorey: ***`C:\Users\%username%\.ssh`***.
 Or open **`Git Bash`** and paste in the following command.
-If you haven`t installed it yet, you can download it from **<Underscore><AnchorLink href="https://git-scm.com/downloads" id="here" target="_blank" /></Underscore>**.  
+If you haven`t installed it yet, you can download it from **<Underscore><Link href="https://git-scm.com/downloads" id="here" target="_blank" /></Underscore>**.  
 
 <PrismJS language="bash" code="{codeSnippets.git.checkSshKeys}" header=""/>
 If you find one of the following files, you can skip step 3.  
 
-<div class="padding-left-top">
+<div class="margin-top-left">
 
 ✔️ id_rsa.pub  
 ✔️ id_ecdsa.pub  
@@ -54,7 +48,7 @@ Choose the default folder and filename for you ssh key. Enter a passphrase and y
 <h2 id="add-the-ssh-key-to-your-github">4. Add the SSH-Key to your Github</h2>
 
 Open the **`id_ed25519.pub`** file and copy the public key into your clipboard.
-Open your Github page, click on your profile picture, then click **<Underscore><AnchorLink href="https://github.com/settings/profile" id="Settings" target="_blank" /></Underscore>**.  
+Open your Github page, click on your profile picture, then click **<Underscore><Link href="https://github.com/settings/profile" id="Settings" target="_blank" /></Underscore>**.  
 Click on **`SSH and GPG keys`** in the navigation bar, then click **`New SSH key`**.
 Paste in the public key from the clipboard then click **`Add SSH key`**.
 >
@@ -77,11 +71,11 @@ Finally, list your remotes to see if it worked:
 
 <h2 id="resources">Resources 📙</h2>
 
-<div class="padding-left-top">
+<div class="margin-top-left">
 
-More Information about **<Underscore><AnchorLink href="https://searchsecurity.techtarget.com/definition/Secure-Shell" id="SSH" target="_blank" /></Underscore>** from **`searchsecurity.techtarget.com`**  
-Official **<Underscore><AnchorLink href="https://docs.github.com/en/free-pro-team@latest/github" id="Github Docs" target="_blank" /></Underscore>**  
-Download **<Underscore><AnchorLink href="https://git-scm.com/downloads" id="GIT" target="_blank" /></Underscore>**  
+More Information about **<Underscore><Link href="https://searchsecurity.techtarget.com/definition/Secure-Shell" id="SSH" target="_blank" /></Underscore>** from **`searchsecurity.techtarget.com`**  
+Official **<Underscore><Link href="https://docs.github.com/en/free-pro-team@latest/github" id="Github Docs" target="_blank" /></Underscore>**  
+Download **<Underscore><Link href="https://git-scm.com/downloads" id="GIT" target="_blank" /></Underscore>**  
 
 </div>
 
@@ -90,7 +84,8 @@ Download **<Underscore><AnchorLink href="https://git-scm.com/downloads" id="GIT"
     import PrismJS from "../../../components/PrismJS.svelte";
     import codeSnippets from '../../../components/codeSnippets.js';
     import Image from "../../../components/Image.svelte";
-    import AnchorLink from "../../../components/AnchorLink.svelte";
+    import Link from "../../../components/Link.svelte";
+    import Capital from "../../../components/Capital.svelte";
     import Slug from '../../../store/slug';
     export let href = "";
     $: href = "/blog/" + $Slug;

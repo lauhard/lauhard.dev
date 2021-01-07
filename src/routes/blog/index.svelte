@@ -22,7 +22,8 @@
     tags = utils.getTags(posts);
     export let capitalProps = {
         size: "2.5em",
-        color: "#a248f7e3" //main color
+        color: "#a248f7e3", //main color
+        font: "\'Homemade Apple\', cursive"
     }
  
 	function getTag(event) {
