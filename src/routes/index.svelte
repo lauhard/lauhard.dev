@@ -17,8 +17,8 @@
 	<!-- <img src="{sk}" alt=""> -->
 	<p class="crazy1"></p>
 	<p class="crazy2"></p>
-	<p class="crazy3"> The site is still under construction </p>
-	<p class="crazy4"> Thanks, for checking out </p>
+	<p class="crazy3">The site is still under construction</p>
+	<p class="crazy4">Thanks, for checking out</p>
 	<p class="crazy5"></p>
 </div>
 <!-- html -->
@@ -47,7 +47,7 @@
 		font-size: 2.5em;
 	}
 	p{
-		padding: 1em 3em;
+		padding: 1em;
 		margin: 1.1em;
 		background-color: rgba(255, 99, 71, 0.65);
 	}
@@ -64,7 +64,7 @@
 		content: "I am a developer from austria with a passion for web development";
 	}
 	.crazy1:hover::after {
-		content: "I am a developer from austria with a ❤️ for web development";
+		content: "I am a developer from austria with a 💜 for web development";
 	}
 
 	.crazy2 {
@@ -80,14 +80,14 @@
 	.crazy3 {
 		transform: rotate(8deg)
 	}
-	.crazy3:hover::after{
-		content: " ⚒️";
-	}
 	.crazy3:hover::before{
 		content: "⚒️ ";
 	}
+	.crazy3:hover::after{
+		content: " ⚒️";
+	}
 	.crazy3:hover{
-		background-color:rgb(223, 21, 139);
+		text-align: center;
 	}
 
 	.crazy4 {

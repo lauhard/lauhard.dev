@@ -2,7 +2,12 @@ I know, I know, Github has a very good documentation but I wanted to give you a 
 The SSH protocol is a very powerful protocoll. It is great and secure way to connect to other servers and services. If you work with Github, I would highly recommend you to set it up!
 You can find some more Information about SSH and the Links to the Github documentation in the **<Underscore><AnchorLink href="{href}" id="Resources" slugID = "true" /></Underscore>** section.
 
+<div class="padding-left-top">
+
 <slot name="table-of-content"></slot>
+
+</div>
+
 <h2 id="check-if-open-ssh-is-running">1. Check if OpenSSH service is running</h2>
 
 **`OpenSSH`** is disabled by default on Windows10. Open the Windows-Services and search for **`OpenSSH`**. Click right on the service, open settings start the service. For startup type choose "Automatic".
@@ -24,11 +29,15 @@ Or open **`Git Bash`** and paste in the following command.
 If you haven`t installed it yet, you can download it from **<Underscore><AnchorLink href="https://git-scm.com/downloads" id="here" target="_blank" /></Underscore>**.  
 
 <PrismJS language="bash" code="{codeSnippets.git.checkSshKeys}" header=""/>
-If you find one of the following files, you can skip step 3.
+If you find one of the following files, you can skip step 3.  
 
-> ✔️ id_rsa.pub  
-> ✔️ id_ecdsa.pub  
-> ✔️ id_ed25519.pub  
+<div class="padding-left-top">
+
+✔️ id_rsa.pub  
+✔️ id_ecdsa.pub  
+✔️ id_ed25519.pub  
+
+</div>
 
 <h2 id="create-a-new-ssh-key">3. Create a new SSH key</h2>
 
@@ -36,10 +45,12 @@ Type in the following command, replace the email address with yours and hit ente
 
 <PrismJS language="bash" code="{codeSnippets.git.newSshKey}" header=""/>
 
->
- Choose the default folder and filename for you ssh key.  
- Enter a passphrase and you are done.  
- ❗ It is possible to change the folder and the filename but this requires extra configuration.
+Choose the default folder and filename for you ssh key.  
+Enter a passphrase and you are done.  
+
+<div class="attention">
+❗ It is possible to change the folder and the filename but this requires extra configuration.
+</div>
 
 <h2 id="add-the-ssh-key-to-your-github">4. Add the SSH-Key to your Github</h2>
 
@@ -67,10 +78,13 @@ Finally, list your remotes to see if it worked:
 
 <h2 id="resources">Resources 📙</h2>
 
-> 
+<div class="padding-left-top">
+
 More Information about **<Underscore><AnchorLink href="https://searchsecurity.techtarget.com/definition/Secure-Shell" id="SSH" target="_blank" /></Underscore>** from **`searchsecurity.techtarget.com`**  
 Official **<Underscore><AnchorLink href="https://docs.github.com/en/free-pro-team@latest/github" id="Github Docs" target="_blank" /></Underscore>**  
 Download **<Underscore><AnchorLink href="https://git-scm.com/downloads" id="GIT" target="_blank" /></Underscore>**  
+
+</div>
 
 <script>
     import Underscore from "../../../components/Underscore.svelte";

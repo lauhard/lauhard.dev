@@ -34,11 +34,11 @@ tags:
 <div slot="table-of-content">
 
 ## Table of Content  
->**<Underscore><AnchorLink href="{href}" _enum="1." margin="0px 3px 0 0" id="Check if OpenSSH service is running" slugID = true /></Underscore>**  
->**<Underscore><AnchorLink href="{href}" _enum="2." margin="0px 3px 0 0" id="Check if SSH key exists" slugID = true /></Underscore>**  
->**<Underscore><AnchorLink href="{href}" _enum="3." margin="0px 3px 0 0" id="Create a new SSH key" slugID = "true" /></Underscore>**  
->**<Underscore><AnchorLink href="{href}" _enum="4." margin="0px 3px 0 0" id="Add the SSH Key to your Github" slugID = "true" /></Underscore>**  
->**<Underscore><AnchorLink href="{href}" _enum="5." margin="0px 3px 0 0" id="Change URL from HTTPS to SSH" slugID = "true" /></Underscore>** 
+**<Underscore><AnchorLink href="{href}" _enum="1." margin="0px 3px 0 0" id="Check if OpenSSH service is running" slugID = true /></Underscore>**  
+**<Underscore><AnchorLink href="{href}" _enum="2." margin="0px 3px 0 0" id="Check if SSH key exists" slugID = true /></Underscore>**  
+**<Underscore><AnchorLink href="{href}" _enum="3." margin="0px 3px 0 0" id="Create a new SSH key" slugID = "true" /></Underscore>**  
+**<Underscore><AnchorLink href="{href}" _enum="4." margin="0px 3px 0 0" id="Add the SSH Key to your Github" slugID = "true" /></Underscore>**  
+**<Underscore><AnchorLink href="{href}" _enum="5." margin="0px 3px 0 0" id="Change URL from HTTPS to SSH" slugID = "true" /></Underscore>** 
 
 </div>
 <!-- table of content -->
@@ -50,6 +50,23 @@ tags:
     }
     h2 {
         margin: 1em 0 .3em 0;
+    }
+    .padding-left-top {
+        margin: .5em 0em 0em 2em;
+    }
+    .attention {
+        border:1px solid rgba(165, 3, 43, .2);
+        background: rgba(165, 3, 43, .1);
+        padding:.5em;
+        margin-top:.5em;
+    }
+    .info {
+
+    }
+    @media (max-width: 500px) {
+        .padding-left-top {
+            margin: .5em 0em 0em 0em;
+        }
     }
 </style>
 

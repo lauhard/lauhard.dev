@@ -41,12 +41,12 @@
 </svelte:head>
 <div class="hero-overlay" on:mouseover={enter} on:mouseout={leave} style="color: {color}; background: {backgroundColor}" >
     {#if typeof(post.title) != 'undefined' && post.title != ''}
-        <h1>{post.title}</h1>
+        <h1>{post.title}</h1><br>
     {/if}
 
-    {#if typeof(post.author) != 'undefined' && post.author != ''}
+    <!-- {#if typeof(post.author) != 'undefined' && post.author != ''}
         <p>by <strong>{post.author}</strong></p><br>
-    {/if}
+    {/if} -->
 
     {#if typeof(post.creationDate) != 'undefined' && post.creationDate != ''}
         <span>📅 <strong>{post.creationDate}</strong></span><br>
@@ -94,7 +94,7 @@
     @media (max-width: 700px) {
 		.hero-overlay {
             width: 100%;
-            border-radius: 0 10px 0px 0px;
+            border-radius: 20px 20px 0px 0px;
         }
     }
     @media (max-width: 400px) {
@@ -103,7 +103,6 @@
             width: 100%;
             padding: 1em;
             margin-top: -163px;
-            border-radius: 0 10px 0px 0px;
         }
 	}
 </style>
