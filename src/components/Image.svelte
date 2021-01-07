@@ -43,5 +43,24 @@ figcaption{
     height: auto;
     width: 100%;
 }
+@media (max-width: 600px) {
+    figcaption{
+        width: 399px  !important;
+    }
+    img {
+        width: 399px !important;
+        height: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    figcaption{
+        width: 299px  !important;
+    }
+    img {
+        width: 299px !important;
+        height: auto;
+    }
+}
 </style>
 <!-- style -->

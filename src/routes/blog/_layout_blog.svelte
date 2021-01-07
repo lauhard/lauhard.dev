@@ -78,15 +78,17 @@
 <div id="intersector" style = "height:1px; width:100%; top:{intersect}; position:absolute; "></div>
 <div class="wrapper">
     <header>
-        <Image imageName="{imageName}" alt="as" desc="" {imageProps}>
-              <HeroOverlay {post} {heroOverlayProps}>
+        <figure style="align-items:{imageProps.position}; width:{imageProps.figureWith};">
+            <!-- svelte-ignore a11y-img-redundant-alt -->
+            <img style="width:{imageProps.width}; height:{imageProps.height}; border-radius:{imageProps.borderRadius}; object-fit:{imageProps.objectFit};" src="./images/{imageName}" alt="hero image">
+            <HeroOverlay {post} {heroOverlayProps}>
                 {#each tags as tag}
                     <FilterButton  tag = "{tag}" on:tag>
                         <a  href='blog'>{tag}</a>
                     </FilterButton>
                 {/each}
             </HeroOverlay>
-        </Image>
+        </figure>
     </header>
     <div class="content">
         <!-- blogpost -->
@@ -155,7 +157,6 @@
         padding: 0 0em;
         margin: 0 2% 0 2%;
         right: 0px;
-        
     }
     .aside-slide-up {
         top: 130px;
@@ -176,16 +177,16 @@
         top:50px;
         height: 100%; 
     }
-    /* .left {
-        left:10px;
-    }
-    .left {
-        background-color: aquamarine;
-    } */
-     /* h1, p {
+
+    figure, img{
         margin:0;
-        padding:0;
-    } */
+    }
+    figure{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+    }
     h2{
         margin: 0 0 .5em 0;
     }
@@ -195,7 +196,7 @@
             margin-bottom: 0px; 
             transition: all ease .3s;
         }
-        .left, .aside-right, .aside-slide-up{
+        .aside-right, .aside-slide-up{
             left:0px;
             right: 0px;
             top:0px;
@@ -225,6 +226,5 @@
             width:98%; 
         }
 	}
-   
 </style>
 <!-- style -->

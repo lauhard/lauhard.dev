@@ -53,7 +53,7 @@
     {/if}
 
     {#if typeof(post.modificationDate) != 'undefined' && post.modificationDate != ''}
-        <span>✏️ {post.modificationDate}</span><br>
+        <span>✏️ <strong>{post.modificationDate}</strong></span><br>
     {/if}
 
     {#if typeof(post.readingTime) != 'undefined' && post.readingTime != ''}

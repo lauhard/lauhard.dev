@@ -73,11 +73,15 @@
 
 <style>
   code[class*="language-"] {
-    background-color: transparent ;
-  }
-  p {
+    background-color: transparent;
     margin: 0;
     padding: 0;
+  }
+  p {
+    margin-top: 10px;
+    padding: 0;
+    font-weight: 600;
+    color: var(--main-background-color1);
   }
   pre::before {
    content: "" !important;
@@ -97,8 +101,8 @@
       href="https://tutsplus.github.io/syntax-highlighter-demos/highlighters/Prism/prism_okaidia.css" />
 </svelte:head>
 <div class="w3-container">
-  <p><strong>{header}</strong></p>
+  <p>{header}</p>
   <pre>
-    <code class="language-{language}">{code}</code>
+    <code class="language-{language}">{code.trim()}</code>
   </pre>
 </div>

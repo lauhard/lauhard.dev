@@ -46,7 +46,7 @@
 
 <!-- html -->
 <svelte:head>
-	<title>Blog</title>
+	<title>Blog 💭</title>
 </svelte:head>
 
 <div class="content-wrapper">

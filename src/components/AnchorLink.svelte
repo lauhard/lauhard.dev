@@ -1,14 +1,12 @@
 <!-- script -->
 <script>
-    import Underscore from "./Underscore.svelte";
-    import Capital from "./Capital.svelte";
-
     export let href = "";
     export let _enum = "";
     export let id = "";
     // export let anchorProps;
-    export let margin = "";
+    export let margin = "0";
     export let slugID = false;
+    export let target = "";
     export let idSlug ="";
 
     if (slugID) {
@@ -29,8 +27,8 @@
 <svelte:head>
 
 </svelte:head>
-<a class ="anchor" href="{href}{idSlug}">
-    <span class="capital" style="margin:{margin};">
+<a class ="anchor" href="{href}{idSlug}" target="{target}">
+    <span style="margin:{margin};">
         <!-- <Capital char = "{_enum}" content = "" capitalProps = "{anchorProps}" /> -->
         {_enum}
     </span>
@@ -43,15 +41,9 @@
 <style>
 a {
     text-decoration:none;
-    height:25px;
+    display:inline-block;
+    height:auto;
+    width: auto;
 }
-.anchor {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-}
-/* .capital {
-    margin-top: 12px;
-} */
 </style>
 <!-- css -->

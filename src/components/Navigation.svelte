@@ -60,11 +60,11 @@
 		<li>
 			<span class="icon hide">📚</span>
 			<a rel=prefetch data-active="{segment === 'tutorial' ? 'page' : undefined}" href="tutorial">
-				<p>Guides</p>
+				<p>Tutorials</p>
 			</a>
 		</li>
 		<li>
-			<!--  🧻-->
+			<!--🧻-->
 			<span class="icon hide">📑</span> 
 			<a rel=prefetch data-active="{segment === 'snippets' ? 'page' : undefined}" href="snippets">
 				<p>Snippets</p>

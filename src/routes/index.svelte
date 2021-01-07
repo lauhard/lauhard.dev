@@ -6,7 +6,7 @@
 
 <!-- html -->
 <svelte:head>
-	<title>Lauhard.dev</title>
+	<title>Home ☕</title>
 </svelte:head>
 
 <div class="content">
@@ -15,10 +15,11 @@
 	</div>
 	<br>
 	<!-- <img src="{sk}" alt=""> -->
-	<p class="crazy1">I am a developer from Austria with a passion for web development</p>
-	<p class="crazy2">I created this site to collect and share my tips, tricks and thoughts about my interests</p>
-	<p class="crazy3">Thanks, for checking out </p>
-	<p class="crazy4">Have a great day </p>
+	<p class="crazy1"></p>
+	<p class="crazy2"></p>
+	<p class="crazy3"> The site is still under construction </p>
+	<p class="crazy4"> Thanks, for checking out </p>
+	<p class="crazy5"></p>
 </div>
 <!-- html -->
 
@@ -59,14 +60,54 @@
 	.crazy1 {
 		transform: rotate(4deg)
 	}
+	.crazy1::after {
+		content: "I am a developer from austria with a passion for web development";
+	}
+	.crazy1:hover::after {
+		content: "I am a developer from austria with a ❤️ for web development";
+	}
+
 	.crazy2 {
 		transform: rotate(-3deg)
 	}
-	.crazy3 {
-		transform: rotate(10deg)
+	.crazy2::after {
+		content: "I created this site to collect and share my tips, tricks and thoughts about my interests"
 	}
+	.crazy2:hover::after {
+		content: "I created this site to collect and share my 💩, 💩 and 💩 about my interests"
+	}
+
+	.crazy3 {
+		transform: rotate(8deg)
+	}
+	.crazy3:hover::after{
+		content: " ⚒️";
+	}
+	.crazy3:hover::before{
+		content: "⚒️ ";
+	}
+	.crazy3:hover{
+		background-color:rgb(223, 21, 139);
+	}
+
 	.crazy4 {
 		transform: rotate(-3deg)
+	}
+	.crazy4:hover::before{
+		content: "🙏 "
+	}
+	.crazy4:hover::after{
+		content: " 🙏"
+	}
+	
+	.crazy5 {
+		transform: rotate(7deg)
+	}
+	.crazy5::after {
+		content: "Have a great day"
+	}
+	.crazy5:hover::after {
+		content: "Have a 💣 day"
 	}
 	/* h1 {
 		font-size: 2.8em;
