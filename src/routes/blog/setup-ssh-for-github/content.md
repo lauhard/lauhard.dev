@@ -45,8 +45,7 @@ Type in the following command, replace the email address with yours and hit ente
 
 <PrismJS language="bash" code="{codeSnippets.git.newSshKey}" header=""/>
 
-Choose the default folder and filename for you ssh key.  
-Enter a passphrase and you are done.  
+Choose the default folder and filename for you ssh key. Enter a passphrase and you are done.  
 
 <div class="attention">
 ❗ It is possible to change the folder and the filename but this requires extra configuration.

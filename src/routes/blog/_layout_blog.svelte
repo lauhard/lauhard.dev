@@ -225,6 +225,12 @@
         .content, header, .aside-right{
             width:98%; 
         }
+        .content {
+            padding: 1em; 
+        }
+        .aside-right--box {
+            padding: 1em; 
+        }
 	}
 </style>
 <!-- style -->
